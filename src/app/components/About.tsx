@@ -154,7 +154,7 @@ export const About: React.FC = () => {
                 PD
               </div>
               <h4 className="text-xl font-medium text-gray-900 mb-2">Patrick Developer</h4>
-              <p className="text-indigo-500 mb-4 font-medium">CEO & Full Stack Developer</p>
+              <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
                 Especialista en React, Node.js y arquitecturas escalables con más de 8 años de experiencia.
               </p>
@@ -171,7 +171,7 @@ export const About: React.FC = () => {
                 TZ
               </div>
               <h4 className="text-xl font-medium text-gray-900 mb-2">Tomas Zalazar</h4>
-              <p className="text-indigo-500 mb-4 font-medium">UI/UX Designer</p>
+              <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
                 Experto en diseño de interfaces y experiencia de usuario con enfoque en conversión.
               </p>
@@ -188,7 +188,7 @@ export const About: React.FC = () => {
                 GM
               </div>
               <h4 className="text-xl font-medium text-gray-900 mb-2">Gonzalo Miguel</h4>
-              <p className="text-indigo-500 mb-4 font-medium">Frontend Developer</p>
+              <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
                 Desarrollador especializado en interfaces de usuario y experiencias web modernas.
               </p>
