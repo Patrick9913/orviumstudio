@@ -168,9 +168,9 @@ export const About: React.FC = () => {
               whileHover={{ scale: 1.05, y: -5 }}
             >
               <div className="w-24 h-24 bg-blue-900 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-medium">
-                MD
+                TZ
               </div>
-              <h4 className="text-xl font-medium text-gray-900 mb-2">María Designer</h4>
+              <h4 className="text-xl font-medium text-gray-900 mb-2">Tomas Zalazar</h4>
               <p className="text-indigo-500 mb-4 font-medium">UI/UX Designer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
                 Experta en diseño de interfaces y experiencia de usuario con enfoque en conversión.
@@ -185,9 +185,9 @@ export const About: React.FC = () => {
               whileHover={{ scale: 1.05, y: -5 }}
             >
               <div className="w-24 h-24 bg-blue-900 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-medium">
-                AM
+                GM
               </div>
-              <h4 className="text-xl font-medium text-gray-900 mb-2">Alex Frontend</h4>
+              <h4 className="text-xl font-medium text-gray-900 mb-2">Gonzalo Miguel</h4>
               <p className="text-indigo-500 mb-4 font-medium">Frontend Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
                 Desarrollador especializado en interfaces de usuario y experiencias web modernas.
