@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiCheck } from 'react-icons/fi';
 import emailjs from '@emailjs/browser';
 
@@ -73,22 +72,30 @@ export const Contact: React.FC = () => {
         setNotification({ type: null, message: '' });
       }, 5000);
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error detallado al enviar email:', error);
-      console.error('Código de error:', error?.status);
-      console.error('Texto del error:', error?.text);
       
       // Mostrar información más específica del error
       let errorMessage = 'Hubo un error al enviar tu mensaje. ';
       
-      if (error?.status === 400) {
-        errorMessage += 'Error de validación. Verifica que todos los campos estén completos.';
-      } else if (error?.status === 401) {
-        errorMessage += 'Error de autenticación. Por favor, contáctanos directamente.';
-      } else if (error?.status === 403) {
-        errorMessage += 'Error de permisos. Por favor, contáctanos directamente.';
+      if (error && typeof error === 'object' && 'status' in error) {
+        const errorStatus = (error as { status: number }).status;
+        const errorText = (error as { text?: string }).text;
+        
+        console.error('Código de error:', errorStatus);
+        console.error('Texto del error:', errorText);
+        
+        if (errorStatus === 400) {
+          errorMessage += 'Error de validación. Verifica que todos los campos estén completos.';
+        } else if (errorStatus === 401) {
+          errorMessage += 'Error de autenticación. Por favor, contáctanos directamente.';
+        } else if (errorStatus === 403) {
+          errorMessage += 'Error de permisos. Por favor, contáctanos directamente.';
+        } else {
+          errorMessage += `Error ${errorStatus || 'desconocido'}: ${errorText || 'Error desconocido'}`;
+        }
       } else {
-        errorMessage += `Error ${error?.status || 'desconocido'}: ${error?.text || 'Error desconocido'}`;
+        errorMessage += 'Error desconocido. Por favor, inténtalo de nuevo.';
       }
       
       // Mostrar notificación de error
