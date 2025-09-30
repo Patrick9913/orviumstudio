@@ -276,7 +276,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <p className="text-gray-600 font-light">info@orviumstudio.com</p>
+                    <p className="text-gray-600 font-light">orviumstudio@gmail.com</p>
                   </div>
                 </div>
 
@@ -296,7 +296,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Ubicación</p>
-                    <p className="text-gray-600 font-light">Ciudad, País</p>
+                    <p className="text-gray-600 font-light">Buenos Aires, Argentina</p>
                   </div>
                 </div>
               </div>

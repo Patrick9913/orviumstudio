@@ -173,7 +173,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Tomas Zalazar</h4>
               <p className="text-indigo-500 mb-4 font-medium">UI/UX Designer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Experta en diseño de interfaces y experiencia de usuario con enfoque en conversión.
+                Experto en diseño de interfaces y experiencia de usuario con enfoque en conversión.
               </p>
             </motion.div>
             <motion.div 
