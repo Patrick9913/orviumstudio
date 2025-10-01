@@ -6,28 +6,6 @@ import { FiTarget, FiZap, FiUsers, FiClock } from 'react-icons/fi';
 import { Logo } from './Logo';
 
 export const About: React.FC = () => {
-  const highlights = [
-    { 
-      icon: '🚀', 
-      title: 'Innovación', 
-      description: 'Tecnologías de vanguardia y metodologías modernas' 
-    },
-    { 
-      icon: '⚡', 
-      title: 'Velocidad', 
-      description: 'Desarrollo ágil y entrega rápida de resultados' 
-    },
-    { 
-      icon: '🎯', 
-      title: 'Enfoque', 
-      description: 'Soluciones personalizadas para cada cliente' 
-    },
-    { 
-      icon: '💡', 
-      title: 'Creatividad', 
-      description: 'Diseños únicos que destacan tu marca' 
-    }
-  ];
 
   const values = [
     {
@@ -69,45 +47,17 @@ export const About: React.FC = () => {
               </h2>
             </div>
             <p className="text-lg text-gray-600 mb-6 font-light leading-relaxed">
-              Somos un equipo joven y apasionado de <strong>desarrolladores web</strong> y <strong>diseñadores</strong> que creemos en el poder 
-              de la <strong>tecnología web</strong> para transformar negocios. Aunque somos una empresa nueva, cada miembro del equipo 
-              aporta años de experiencia individual en <strong>desarrollo web</strong> y <strong>diseño de interfaces</strong>.
+              En <strong>Orvium Studio</strong> contamos con un equipo de <strong>profesionales en desarrollo web</strong> y 
+              <strong> diseño digital</strong> comprometidos con la excelencia. Nuestra experiencia combinada nos permite ofrecer 
+              <strong> soluciones tecnológicas</strong> que impulsan la transformación digital de empresas y organizaciones, 
+              garantizando calidad, eficiencia y resultados sostenibles.
             </p>
             <p className="text-lg text-gray-600 mb-10 font-light leading-relaxed">
-              Nuestro enfoque se centra en entender las necesidades únicas de cada cliente y 
-              crear <strong>sitios web</strong> y <strong>aplicaciones web</strong> personalizadas que no solo cumplen con los requisitos, sino que 
-              superan las expectativas. Estamos aquí para crecer contigo en <strong>Buenos Aires</strong> y toda <strong>Argentina</strong>.
+              Nos especializamos en comprender los objetivos estratégicos de cada cliente para diseñar 
+              <strong> sitios web</strong> y <strong>aplicaciones web</strong> a medida, orientadas a optimizar procesos y potenciar el crecimiento. 
+              Nuestro compromiso es acompañar a las empresas en su desarrollo en toda la
+              <strong> Argentina</strong> y en el mercado global.
             </p>
-            
-            <motion.div 
-              className="grid grid-cols-2 gap-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              {highlights.map((highlight, index) => (
-                <motion.div 
-                  key={index} 
-                  className="text-center p-4 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-100"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  <div className="text-3xl mb-3">
-                    {highlight.icon}
-                  </div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-2">
-                    {highlight.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 font-light leading-relaxed">
-                    {highlight.description}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
 
           <motion.div 
