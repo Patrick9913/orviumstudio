@@ -24,6 +24,9 @@ export const Navbar: React.FC = () => {
             <a href="#servicios" className="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition-colors">
               Servicios
             </a>
+            <a href="#tecnologias" className="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition-colors">
+              Tecnologías
+            </a>
             <a href="#nosotros" className="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition-colors">
               Nosotros
             </a>
@@ -58,6 +61,9 @@ export const Navbar: React.FC = () => {
               </a>
               <a href="#servicios" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
                 Servicios
+              </a>
+              <a href="#tecnologias" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
+                Tecnologías
               </a>
               <a href="#nosotros" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
                 Nosotros
