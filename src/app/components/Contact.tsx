@@ -127,7 +127,7 @@ export const Contact: React.FC = () => {
             ¿Listo para comenzar tu proyecto?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-            Cuéntanos sobre tu idea y te ayudaremos a hacerla realidad
+            Contanos sobre tu idea y te ayudamos a hacerla realidad
           </p>
         </div>
 

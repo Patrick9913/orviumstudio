@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiTwitter, FiFacebook, FiLinkedin } from 'react-icons/fi';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,9 +9,9 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-light mb-6">
-              <span className="text-indigo-400">Orvium</span>Studio
-            </h3>
+            <div className="mb-6">
+              <Logo size="lg" className="text-white" />
+            </div>
             <p className="text-gray-300 mb-8 max-w-md font-light leading-relaxed">
               Especialistas en desarrollo web y aplicaciones web. Transformamos ideas en soluciones digitales exitosas.
             </p>

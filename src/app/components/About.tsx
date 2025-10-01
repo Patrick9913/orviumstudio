@@ -3,13 +3,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiTarget, FiZap, FiUsers, FiClock } from 'react-icons/fi';
+import { Logo } from './Logo';
 
 export const About: React.FC = () => {
-  const stats = [
-    { number: '50+', label: 'Proyectos Completados' },
-    { number: '30+', label: 'Clientes Satisfechos' },
-    { number: '5+', label: 'Años de Experiencia' },
-    { number: '99%', label: 'Tasa de Satisfacción' }
+  const highlights = [
+    { 
+      icon: '🚀', 
+      title: 'Innovación', 
+      description: 'Tecnologías de vanguardia y metodologías modernas' 
+    },
+    { 
+      icon: '⚡', 
+      title: 'Velocidad', 
+      description: 'Desarrollo ágil y entrega rápida de resultados' 
+    },
+    { 
+      icon: '🎯', 
+      title: 'Enfoque', 
+      description: 'Soluciones personalizadas para cada cliente' 
+    },
+    { 
+      icon: '💡', 
+      title: 'Creatividad', 
+      description: 'Diseños únicos que destacan tu marca' 
+    }
   ];
 
   const values = [
@@ -45,42 +62,49 @@ export const About: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-light text-gray-900 mb-8">
-              ¿Por qué elegir OrviumStudio?
-            </h2>
+            <div className="mb-8">
+              <Logo size="lg" className="mb-6" />
+              <h2 className="text-4xl font-light text-gray-900">
+                ¿Por qué elegirnos?
+              </h2>
+            </div>
             <p className="text-lg text-gray-600 mb-6 font-light leading-relaxed">
-              Somos un equipo apasionado de desarrolladores web y diseñadores que creemos en el poder 
-              de la tecnología web para transformar negocios. Con más de 5 años de experiencia, hemos 
-              ayudado a empresas de todos los tamaños a alcanzar sus objetivos digitales.
+              Somos un equipo joven y apasionado de desarrolladores web y diseñadores que creemos en el poder 
+              de la tecnología web para transformar negocios. Aunque somos una empresa nueva, cada miembro del equipo 
+              aporta años de experiencia individual en desarrollo y diseño.
             </p>
             <p className="text-lg text-gray-600 mb-10 font-light leading-relaxed">
               Nuestro enfoque se centra en entender las necesidades únicas de cada cliente y 
               crear sitios web y aplicaciones web personalizadas que no solo cumplen con los requisitos, sino que 
-              superan las expectativas.
+              superan las expectativas. Estamos aquí para crecer contigo.
             </p>
             
             <motion.div 
-              className="grid grid-cols-2 gap-8"
+              className="grid grid-cols-2 gap-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              {stats.map((stat, index) => (
+              {highlights.map((highlight, index) => (
                 <motion.div 
                   key={index} 
-                  className="text-center"
+                  className="text-center p-4 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-100"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                   viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                 >
-                  <div className="text-3xl font-light text-indigo-500 mb-2">
-                    {stat.number}
+                  <div className="text-3xl mb-3">
+                    {highlight.icon}
                   </div>
-                  <div className="text-sm text-gray-600 font-light">
-                    {stat.label}
-                  </div>
+                  <h4 className="text-lg font-medium text-gray-900 mb-2">
+                    {highlight.title}
+                  </h4>
+                  <p className="text-sm text-gray-600 font-light leading-relaxed">
+                    {highlight.description}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,12 +9,10 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="bg-white border-b border-gray-200 fixed w-full z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-xl font-semibold text-gray-900">
-                <span className="text-blue-900">Orvium</span>Studio
-              </h1>
+              <Logo size="md" />
             </div>
           </div>
           
