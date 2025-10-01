@@ -79,8 +79,13 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'google3a206e99a2b5d286',
+    other: {
+      'google-site-verification': 'google3a206e99a2b5d286'
+    }
   },
+  category: 'technology',
+  classification: 'Business',
 };
 
 export default function RootLayout({
