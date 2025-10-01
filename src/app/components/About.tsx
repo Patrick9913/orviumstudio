@@ -69,14 +69,14 @@ export const About: React.FC = () => {
               </h2>
             </div>
             <p className="text-lg text-gray-600 mb-6 font-light leading-relaxed">
-              Somos un equipo joven y apasionado de desarrolladores web y diseñadores que creemos en el poder 
-              de la tecnología web para transformar negocios. Aunque somos una empresa nueva, cada miembro del equipo 
-              aporta años de experiencia individual en desarrollo y diseño.
+              Somos un equipo joven y apasionado de <strong>desarrolladores web</strong> y <strong>diseñadores</strong> que creemos en el poder 
+              de la <strong>tecnología web</strong> para transformar negocios. Aunque somos una empresa nueva, cada miembro del equipo 
+              aporta años de experiencia individual en <strong>desarrollo web</strong> y <strong>diseño de interfaces</strong>.
             </p>
             <p className="text-lg text-gray-600 mb-10 font-light leading-relaxed">
               Nuestro enfoque se centra en entender las necesidades únicas de cada cliente y 
-              crear sitios web y aplicaciones web personalizadas que no solo cumplen con los requisitos, sino que 
-              superan las expectativas. Estamos aquí para crecer contigo.
+              crear <strong>sitios web</strong> y <strong>aplicaciones web</strong> personalizadas que no solo cumplen con los requisitos, sino que 
+              superan las expectativas. Estamos aquí para crecer contigo en <strong>Buenos Aires</strong> y toda <strong>Argentina</strong>.
             </p>
             
             <motion.div 

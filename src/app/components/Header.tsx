@@ -72,48 +72,48 @@ export const Header: React.FC = () => {
         </motion.div>
         
         {/* Features */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24" aria-label="Características principales">
         <motion.div 
           className="grid md:grid-cols-3 gap-8 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <motion.div 
+          <motion.article 
             className="bg-white/5 backdrop-blur-sm p-8"
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
               <FiZap className="w-8 h-8 text-indigo-400" />
             </div>
             <h3 className="text-xl font-medium mb-4">Desarrollo Web Rápido</h3>
             <p className="text-gray-300 font-light">Entregamos sitios web en tiempo récord sin comprometer la calidad</p>
-          </motion.div>
-          <motion.div 
+          </motion.article>
+          <motion.article 
             className="bg-white/5 backdrop-blur-sm p-8"
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
               <FiSun className="w-8 h-8 text-indigo-400" />
             </div>
             <h3 className="text-xl font-medium mb-4">Diseño Web Innovador</h3>
             <p className="text-gray-300 font-light">Creamos experiencias web únicas que destacan tu marca</p>
-          </motion.div>
-          <motion.div 
+          </motion.article>
+          <motion.article 
             className="bg-white/5 backdrop-blur-sm p-8"
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
               <FiSettings className="w-8 h-8 text-indigo-400" />
             </div>
             <h3 className="text-xl font-medium mb-4">Soporte Continuo</h3>
             <p className="text-gray-300 font-light">Mantenemos y actualizamos tu proyecto a largo plazo</p>
-          </motion.div>
+          </motion.article>
         </motion.div>
-        </div>
+        </section>
       </div>
     </header>
   );
