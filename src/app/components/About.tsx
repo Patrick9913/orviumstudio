@@ -78,36 +78,6 @@ export const About: React.FC = () => {
               crear <strong>sitios web</strong> y <strong>aplicaciones web</strong> personalizadas que no solo cumplen con los requisitos, sino que 
               superan las expectativas. Estamos aquí para crecer contigo en <strong>Buenos Aires</strong> y toda <strong>Argentina</strong>.
             </p>
-            
-            <motion.div 
-              className="grid grid-cols-2 gap-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              {highlights.map((highlight, index) => (
-                <motion.div 
-                  key={index} 
-                  className="text-center p-4 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-100"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  <div className="text-3xl mb-3">
-                    {highlight.icon}
-                  </div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-2">
-                    {highlight.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 font-light leading-relaxed">
-                    {highlight.description}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
 
           <motion.div 

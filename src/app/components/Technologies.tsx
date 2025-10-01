@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FiCode, 
@@ -10,67 +10,71 @@ import {
   FiShield, 
   FiZap,
   FiLayers,
-  FiMonitor
+  FiMonitor,
+  FiCpu,
+  FiGlobe,
+  FiSettings
 } from 'react-icons/fi';
 
 export const Technologies: React.FC = () => {
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+
   const technologies = [
     {
       category: 'Frontend',
       icon: FiMonitor,
       color: 'text-blue-500',
-      bgColor: 'bg-blue-50',
+      bgColor: 'bg-blue-500',
+      position: { x: 0, y: -120 },
       items: [
-        { name: 'React', description: 'Biblioteca de JavaScript para interfaces de usuario' },
-        { name: 'Next.js', description: 'Framework de React para aplicaciones web' },
-        { name: 'TypeScript', description: 'JavaScript con tipado estático' },
-        { name: 'Tailwind CSS', description: 'Framework de CSS utilitario' },
-        { name: 'Framer Motion', description: 'Biblioteca de animaciones' }
+        { name: 'React', description: 'Biblioteca de JavaScript', color: 'bg-blue-100', textColor: 'text-blue-800' },
+        { name: 'Next.js', description: 'Framework de React', color: 'bg-blue-100', textColor: 'text-blue-800' },
+        { name: 'TypeScript', description: 'JavaScript tipado', color: 'bg-blue-100', textColor: 'text-blue-800' },
+        { name: 'Tailwind CSS', description: 'CSS utilitario', color: 'bg-blue-100', textColor: 'text-blue-800' },
+        { name: 'Framer Motion', description: 'Animaciones', color: 'bg-blue-100', textColor: 'text-blue-800' }
       ]
     },
     {
       category: 'Backend',
       icon: FiDatabase,
       color: 'text-green-500',
-      bgColor: 'bg-green-50',
+      bgColor: 'bg-green-500',
+      position: { x: 120, y: 0 },
       items: [
-        { name: 'Node.js', description: 'Entorno de ejecución de JavaScript' },
-        { name: 'Express.js', description: 'Framework web para Node.js' },
-        { name: 'MongoDB', description: 'Base de datos NoSQL' },
-        { name: 'PostgreSQL', description: 'Base de datos relacional' },
-        { name: 'Prisma', description: 'ORM para bases de datos' }
+        { name: 'Node.js', description: 'Runtime de JavaScript', color: 'bg-green-100', textColor: 'text-green-800' },
+        { name: 'Express.js', description: 'Framework web', color: 'bg-green-100', textColor: 'text-green-800' },
+        { name: 'MongoDB', description: 'Base de datos NoSQL', color: 'bg-green-100', textColor: 'text-green-800' },
       ]
     },
     {
-      category: 'Cloud & Servicios',
+      category: 'Cloud',
       icon: FiCloud,
       color: 'text-purple-500',
-      bgColor: 'bg-purple-50',
+      bgColor: 'bg-purple-500',
+      position: { x: 0, y: 120 },
       items: [
-        { name: 'Firebase', description: 'Plataforma de desarrollo de Google' },
-        { name: 'Vercel', description: 'Plataforma de despliegue' },
-        { name: 'AWS', description: 'Servicios en la nube de Amazon' },
-        { name: 'Google Cloud', description: 'Servicios en la nube de Google' },
-        { name: 'Stripe', description: 'Procesamiento de pagos' }
+        { name: 'Firebase', description: 'Plataforma Google', color: 'bg-purple-100', textColor: 'text-purple-800' },
+        { name: 'Vercel', description: 'Despliegue', color: 'bg-purple-100', textColor: 'text-purple-800' },
+        { name: 'Google Cloud', description: 'Servicios Google', color: 'bg-purple-100', textColor: 'text-purple-800' },
       ]
     },
     {
       category: 'Herramientas',
-      icon: FiCode,
+      icon: FiSettings,
       color: 'text-orange-500',
-      bgColor: 'bg-orange-50',
+      bgColor: 'bg-orange-500',
+      position: { x: -120, y: 0 },
       items: [
-        { name: 'Git', description: 'Control de versiones' },
-        { name: 'Docker', description: 'Contenedores de aplicaciones' },
-        { name: 'Figma', description: 'Diseño de interfaces' },
-        { name: 'VS Code', description: 'Editor de código' },
-        { name: 'ESLint', description: 'Linter de JavaScript' }
+        { name: 'Git', description: 'Control de versiones', color: 'bg-orange-100', textColor: 'text-orange-800' },
+        { name: 'Figma', description: 'Diseño', color: 'bg-orange-100', textColor: 'text-orange-800' },
+        { name: 'VS Code', description: 'Editor', color: 'bg-orange-100', textColor: 'text-orange-800' },
+        { name: 'ESLint', description: 'Linter', color: 'bg-orange-100', textColor: 'text-orange-800' }
       ]
     }
   ];
 
   return (
-    <section id="tecnologias" className="py-24 bg-white">
+    <section id="tecnologias" className="py-24 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-20"
@@ -80,58 +84,87 @@ export const Technologies: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-light text-gray-900 mb-6">
-            Tecnologías que Utilizamos
+            Nuestro Ecosistema Tecnológico
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Trabajamos con las tecnologías más modernas y confiables del mercado para crear productos web de alta calidad
+            Un organigrama visual de las tecnologías que utilizamos para crear soluciones web innovadoras
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Organigrama en Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {technologies.map((tech, categoryIndex) => (
-            <motion.div 
+            <motion.div
               key={tech.category}
-              className="bg-gray-50 rounded-2xl p-8"
+              className="flex flex-col items-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
             >
-              <div className="flex items-center mb-8">
-                <div className={`w-12 h-12 ${tech.bgColor} rounded-xl flex items-center justify-center mr-4`}>
-                  <tech.icon className={`w-6 h-6 ${tech.color}`} />
-                </div>
-                <h3 className="text-2xl font-medium text-gray-900">
-                  {tech.category}
-                </h3>
-              </div>
-              
-              <div className="space-y-4">
+              {/* Categoría principal */}
+              <motion.div
+                className={`w-20 h-20 ${tech.bgColor} rounded-full flex items-center justify-center shadow-lg mb-4 relative`}
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <tech.icon className="w-10 h-10 text-white" />
+              </motion.div>
+
+              {/* Label de la categoría */}
+              <motion.h3
+                className="text-xl font-semibold text-gray-800 mb-6 text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 + categoryIndex * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {tech.category}
+              </motion.h3>
+
+              {/* Tecnologías de la categoría */}
+              <div className="flex flex-wrap justify-center gap-2">
                 {tech.items.map((item, itemIndex) => (
-                  <motion.div 
-                    key={itemIndex}
-                    className="bg-white rounded-lg p-4 border border-gray-200 hover:border-indigo-300 transition-colors"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
+                  <motion.div
+                    key={`${tech.category}-${item.name}`}
+                    className={`px-3 py-2 rounded-full ${item.color} ${item.textColor} text-sm font-medium cursor-pointer transition-all duration-200 hover:shadow-md`}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ 
+                      duration: 0.3, 
+                      delay: 0.4 + categoryIndex * 0.1 + itemIndex * 0.05 
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    onHoverStart={() => setHoveredTech(item.name)}
+                    onHoverEnd={() => setHoveredTech(null)}
                   >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-1">
-                          {item.name}
-                        </h4>
-                        <p className="text-sm text-gray-600 font-light">
-                          {item.description}
-                        </p>
-                      </div>
-                      <div className={`w-3 h-3 ${tech.color.replace('text-', 'bg-')} rounded-full`}></div>
-                    </div>
+                    {item.name}
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Información detallada */}
+        {hoveredTech && (
+          <motion.div
+            className="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl p-4 max-w-sm z-50"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+          >
+            <div className="text-center">
+              <h4 className="font-semibold text-gray-900 mb-1">{hoveredTech}</h4>
+              <p className="text-sm text-gray-600">
+                {technologies
+                  .flatMap(tech => tech.items)
+                  .find(item => item.name === hoveredTech)?.description}
+              </p>
+            </div>
+          </motion.div>
+        )}
 
         {/* Sección de características adicionales */}
         <motion.div 
