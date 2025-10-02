@@ -5,14 +5,10 @@ import { motion } from 'framer-motion';
 import { FiChevronDown, FiChevronUp, FiHelpCircle, FiDollarSign, FiClock, FiShield, FiZap } from 'react-icons/fi';
 
 export const FAQ: React.FC = () => {
-  const [openItems, setOpenItems] = useState<number[]>([]);
+  const [openItem, setOpenItem] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(item => item !== index)
-        : [...prev, index]
-    );
+    setOpenItem(prev => prev === index ? null : index);
   };
 
   const faqs = [
@@ -99,85 +95,87 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-gradient-to-br from-gray-50 to-white">
+    <section id="faq" className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-light text-gray-900 mb-6">
+          <h2 className="text-4xl font-light text-gray-900 mb-4">
             Preguntas Frecuentes
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Resolvemos las dudas más comunes sobre nuestros servicios y cómo pueden impulsar tu negocio
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            Resolvemos las dudas más comunes sobre nuestros servicios
           </p>
         </motion.div>
 
-        <div className="space-y-12">
+        {/* Grid de dos columnas para desktop */}
+        <div className="grid lg:grid-cols-2 gap-6 mb-8 lg:items-start">
           {faqs.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
-              className="bg-white rounded-2xl shadow-lg p-8"
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5 h-fit"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
             >
               {/* Header de la categoría */}
-              <div className="flex items-center mb-8">
-                <div className={`w-12 h-12 ${category.bgColor} rounded-lg flex items-center justify-center mr-4`}>
-                  <category.icon className={`w-6 h-6 ${category.color}`} />
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-900">
+              <div className="mb-4 pb-3 border-b border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900">
                   {category.category}
                 </h3>
               </div>
 
               {/* Preguntas de la categoría */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {category.items.map((item, itemIndex) => {
                   const globalIndex = categoryIndex * 10 + itemIndex;
-                  const isOpen = openItems.includes(globalIndex);
+                  const isOpen = openItem === globalIndex;
                   
                   return (
-                    <motion.div
-                      key={itemIndex}
-                      className="border border-gray-200 rounded-lg overflow-hidden"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.4, delay: itemIndex * 0.1 }}
-                      viewport={{ once: true }}
-                    >
+                    <div key={itemIndex}>
                       <button
-                        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                        className="w-full text-left flex items-start justify-between gap-3 group"
                         onClick={() => toggleItem(globalIndex)}
                       >
-                        <span className="font-medium text-gray-900 pr-4">
+                        <span className="font-medium text-gray-900 text-sm group-hover:text-emerald-600 transition-colors flex-1">
                           {item.question}
                         </span>
-                        {isOpen ? (
-                          <FiChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        ) : (
-                          <FiChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        )}
+                        <motion.div
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex-shrink-0 mt-0.5"
+                        >
+                          <FiChevronDown className={`w-4 h-4 ${isOpen ? 'text-emerald-600' : 'text-gray-400'} transition-colors`} />
+                        </motion.div>
                       </button>
                       
                       <motion.div
                         className="overflow-hidden"
                         initial={false}
-                        animate={{ height: isOpen ? 'auto' : 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        animate={{ 
+                          height: isOpen ? 'auto' : 0,
+                          opacity: isOpen ? 1 : 0
+                        }}
+                        transition={{ 
+                          height: { duration: 0.3, ease: 'easeInOut' },
+                          opacity: { duration: 0.2, ease: 'easeInOut' }
+                        }}
                       >
-                        <div className="px-6 pb-4">
-                          <p className="text-gray-600 leading-relaxed">
-                            {item.answer}
-                          </p>
-                        </div>
+                        <p className="text-gray-600 text-sm leading-relaxed mt-2 pr-6 pb-1">
+                          {item.answer}
+                        </p>
                       </motion.div>
-                    </motion.div>
+
+                      {/* Divisor sutil entre preguntas */}
+                      {itemIndex < category.items.length - 1 && (
+                        <div className="border-b border-gray-100 my-3"></div>
+                      )}
+                    </div>
                   );
                 })}
               </div>
@@ -187,25 +185,24 @@ export const FAQ: React.FC = () => {
 
         {/* Call to Action */}
         <motion.div 
-          className="text-center mt-16"
+          className="mt-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-2xl p-12 text-white">
-            <div className="flex items-center justify-center mb-6">
-              <FiHelpCircle className="w-8 h-8 mr-3" />
+          <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-xl p-10 text-white text-center shadow-lg">
+            <div className="mb-4">
               <h3 className="text-2xl font-semibold">
                 ¿Tienes más preguntas?
               </h3>
             </div>
-            <p className="text-emerald-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/90 text-base mb-6 max-w-2xl mx-auto font-light">
               Agenda una consulta gratuita de 30 minutos donde resolvemos todas tus dudas y te mostramos exactamente cómo podemos impulsar tu negocio.
             </p>
             <motion.a 
               href="#contacto" 
-              className="inline-block bg-white text-emerald-600 px-8 py-4 text-lg font-semibold hover:bg-gray-100 transition-colors rounded-lg shadow-lg"
+              className="inline-block bg-white text-emerald-600 px-8 py-3 text-base font-semibold hover:bg-gray-50 transition-colors rounded-lg shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
