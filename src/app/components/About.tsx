@@ -32,23 +32,23 @@ export const About: React.FC = () => {
   const values = [
     {
       icon: FiTarget,
-      title: 'Enfoque en Resultados',
-      description: 'Cada proyecto está diseñado para generar valor real y medible para tu negocio.'
+      title: 'ROI Garantizado',
+      description: 'Cada sitio web está optimizado para generar más ventas y aumentar tus ingresos desde el primer día.'
     },
     {
       icon: FiZap,
-      title: 'Innovación Constante',
-      description: 'Utilizamos las últimas tecnologías y metodologías para crear soluciones de vanguardia.'
+      title: 'Tecnología de Google',
+      description: 'Firebase, Google Cloud y Next.js para máxima velocidad, seguridad y posicionamiento en Google.'
     },
     {
       icon: FiUsers,
-      title: 'Colaboración Transparente',
-      description: 'Mantenemos comunicación constante y te involucramos en cada etapa del desarrollo.'
+      title: 'Soporte Personalizado',
+      description: 'Te acompañamos en cada paso y te enseñamos a gestionar tu sitio web para maximizar resultados.'
     },
     {
       icon: FiClock,
-      title: 'Entrega Rápida',
-      description: 'Metodologías ágiles que nos permiten entregar resultados de calidad en tiempo récord.'
+      title: 'Tiempo de Mercado Rápido',
+      description: 'Tu competencia no te espera. Entregamos sitios web funcionales en semanas, no meses.'
     }
   ];
 
@@ -69,14 +69,17 @@ export const About: React.FC = () => {
               </h2>
             </div>
             <p className="text-lg text-gray-600 mb-6 font-light leading-relaxed">
-              Somos un equipo joven y apasionado de <strong>desarrolladores web</strong> y <strong>diseñadores</strong> que creemos en el poder 
-              de la <strong>tecnología web</strong> para transformar negocios. Aunque somos una empresa nueva, cada miembro del equipo 
-              aporta años de experiencia individual en <strong>desarrollo web</strong> y <strong>diseño de interfaces</strong>.
+              Somos especialistas en <strong>transformar negocios</strong> a través de la tecnología web. 
+              No solo creamos sitios web bonitos, creamos <strong>máquinas de ventas digitales</strong> que 
+              generan resultados reales para tu empresa. Cada proyecto está diseñado para  
+              <strong> aumentar tus conversiones</strong> y <strong>maximizar tu ROI</strong>.
             </p>
             <p className="text-lg text-gray-600 mb-10 font-light leading-relaxed">
-              Nuestro enfoque se centra en entender las necesidades únicas de cada cliente y 
-              crear <strong>sitios web</strong> y <strong>aplicaciones web</strong> personalizadas que no solo cumplen con los requisitos, sino que 
-              superan las expectativas. Estamos aquí para crecer contigo en <strong>Buenos Aires</strong> y toda <strong>Argentina</strong>.
+              Utilizamos <strong>Firebase de Google</strong> para bases de datos en tiempo real, 
+              <strong>Next.js</strong> para SEO que te posiciona primero en Google, y 
+              <strong>tecnologías de vanguardia</strong> que garantizan que tu sitio web 
+              sea rápido, seguro y escalable. Estamos listos para 
+              impulsar tu negocio en toda <strong>Argentina</strong>.
             </p>
           </motion.div>
 
@@ -150,7 +153,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Patrick Developer</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Especialista en React, Node.js y arquitecturas escalables con más de 8 años de experiencia.
+                Especialista en crear sitios web que convierten visitantes en clientes. Más de 8 años optimizando conversiones.
               </p>
             </motion.div>
             <motion.div 
@@ -167,7 +170,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Tomas Zalazar</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Experto en diseño de interfaces y experiencia de usuario con enfoque en conversión.
+                Experto en UX/UI que aumenta las ventas. Diseña interfaces que fidelizan clientes y maximizan conversiones.
               </p>
             </motion.div>
             <motion.div 
@@ -184,7 +187,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Gonzalo Miguel</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Desarrollador especializado en interfaces de usuario y experiencias web modernas.
+                Desarrollador especializado en sitios web que generan leads y ventas. Experto en tecnologías de Google.
               </p>
             </motion.div>
           </div>
