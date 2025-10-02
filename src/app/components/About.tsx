@@ -10,23 +10,23 @@ export const About: React.FC = () => {
   const values = [
     {
       icon: FiTarget,
-      title: 'Enfoque en Resultados',
-      description: 'Cada proyecto está diseñado para generar valor real y medible para tu negocio.'
+      title: 'ROI Garantizado',
+      description: 'Cada sitio web está optimizado para generar más ventas y aumentar tus ingresos desde el primer día.'
     },
     {
       icon: FiZap,
-      title: 'Innovación Constante',
-      description: 'Utilizamos las últimas tecnologías y metodologías para crear soluciones de vanguardia.'
+      title: 'Tecnología de Google',
+      description: 'Firebase, Google Cloud y Next.js para máxima velocidad, seguridad y posicionamiento en Google.'
     },
     {
       icon: FiUsers,
-      title: 'Colaboración Transparente',
-      description: 'Mantenemos comunicación constante y te involucramos en cada etapa del desarrollo.'
+      title: 'Soporte Personalizado',
+      description: 'Te acompañamos en cada paso y te enseñamos a gestionar tu sitio web para maximizar resultados.'
     },
     {
       icon: FiClock,
-      title: 'Entrega Rápida',
-      description: 'Metodologías ágiles que nos permiten entregar resultados de calidad en tiempo récord.'
+      title: 'Tiempo de Mercado Rápido',
+      description: 'Tu competencia no te espera. Entregamos sitios web funcionales en semanas, no meses.'
     }
   ];
 
@@ -130,7 +130,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Patrick Developer</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Especialista en React, Node.js y arquitecturas escalables con más de 8 años de experiencia.
+                Especialista en crear sitios web que convierten visitantes en clientes. Más de 8 años optimizando conversiones.
               </p>
             </motion.div>
             <motion.div 
@@ -147,7 +147,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Tomas Zalazar</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Experto en diseño de interfaces y experiencia de usuario con enfoque en conversión.
+                Experto en UX/UI que aumenta las ventas. Diseña interfaces que fidelizan clientes y maximizan conversiones.
               </p>
             </motion.div>
             <motion.div 
@@ -164,7 +164,7 @@ export const About: React.FC = () => {
               <h4 className="text-xl font-medium text-gray-900 mb-2">Gonzalo Miguel</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
-                Desarrollador especializado en interfaces de usuario y experiencias web modernas.
+                Desarrollador especializado en sitios web que generan leads y ventas. Experto en tecnologías de Google.
               </p>
             </motion.div>
           </div>
