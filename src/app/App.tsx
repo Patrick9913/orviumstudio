@@ -6,6 +6,8 @@ import { FAQ } from "./components/FAQ";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { TechnologiesCarrusel } from "./components/TechnologiesCarrusel";
+import { Testimonials } from "./components/Testimonials";
 
 export const App: React.FC = () => {
     return (
@@ -15,6 +17,8 @@ export const App: React.FC = () => {
             <Services />
             <FAQ />
             <About />
+            <TechnologiesCarrusel />
+            <Testimonials />
             <Contact />
             <Footer />
         </>
