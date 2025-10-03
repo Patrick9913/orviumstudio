@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-6">
-              <Logo size="lg" className="text-white" />
+              <Logo />
             </div>
             <p className="text-gray-300 mb-8 max-w-md font-light leading-relaxed">
               Especialistas en desarrollo web y aplicaciones web. Transformamos ideas en soluciones digitales exitosas.

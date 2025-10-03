@@ -1,64 +1,73 @@
-import React from 'react';
+"use client";
 
-interface LogoProps {
-  size?: 'sm' | 'md' | 'lg';
-  showText?: boolean;
+import React from "react";
+
+export type LogoOrviumProps = {
+  size?: number;
   className?: string;
-}
+};
 
-export const Logo: React.FC<LogoProps> = ({ 
-  size = 'md', 
-  showText = true, 
-  className = '' 
+export const Logo: React.FC<LogoOrviumProps> = ({
+  size = 86,
+  className = "",
 }) => {
-  const sizeClasses = {
-    sm: {
-      container: 'w-6 h-6',
-      circle: 'w-5 h-5',
-      text: 'text-sm',
-      smallCircle: 'w-3 h-3',
-      smallText: 'text-xs'
-    },
-    md: {
-      container: 'w-10 h-10',
-      circle: 'w-8 h-8',
-      text: 'text-lg',
-      smallCircle: 'w-4 h-4',
-      smallText: 'text-sm'
-    },
-    lg: {
-      container: 'w-12 h-12',
-      circle: 'w-10 h-10',
-      text: 'text-xl',
-      smallCircle: 'w-5 h-5',
-      smallText: 'text-base'
-    }
-  };
-
-  const currentSize = sizeClasses[size];
+  // Calcular tamaños del texto basados en el tamaño del SVG
+  const textScale = size / 56;  // 56 es el tamaño base
+  const orviumSize = Math.round(20 * textScale); // 20px base
+  const studioSize = Math.round(30 * textScale); // 30px base
+  const gap = Math.round(3 * textScale); // 3 = gap-3 en rem
 
   return (
-    <div className={`flex items-center space-x-3 ${className}`}>
-      {/* Logo circular minimalista */}
-      <div className="relative group">
-        <div className={`${currentSize.container} bg-gray-900 rounded-full flex items-center justify-center`}>
-          <span className={`text-white font-thin ${currentSize.text}`}>O</span>
-        </div>
-        <div className={`absolute -top-1 -right-1 ${currentSize.smallCircle} bg-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
-          <span className={`text-white font-thin ${currentSize.smallText}`}>S</span>
+    <div
+      className={`inline-flex items-center select-none`}
+      style={{ gap: `${gap * 1}px` }}
+      aria-label="OrviumStudio logo"
+      role="img"
+    >
+      {/* Isotipo - siempre cyan-600 */}
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="text-cyan-500"
+      >
+        <title>OrviumStudio</title>
+        {/* Anillo exterior (O) */}
+        <circle cx="32" cy="32" r="22" stroke="currentColor" strokeWidth="3" />
+        
+        {/* Línea vertical interna */}
+        <line
+          x1="20"
+          y1="14"
+          x2="20"
+          y2="50"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+      </svg>
+
+      {/* Wordmark - escala con el size */}
+      <div className="leading-none">
+        <div className="tracking-wider">
+          {/* Orvium hereda el color del className padre */}
+          <span 
+            className={`font-semibold ${className}`}
+            style={{ fontSize: `${orviumSize}px` }}
+          >
+            Orvium
+          </span>
+          {/* Studio siempre cyan-600 */}
+          <span 
+            className="font-semibold text-cyan-500"
+            style={{ fontSize: `${studioSize}px` }}
+          >
+            Studio
+          </span>
         </div>
       </div>
-      
-      {/* Texto con tipografía delgada */}
-      {showText && (
-        <div className="flex flex-col">
-          <h1 className={`${currentSize.text} font-thin text-gray-900 tracking-wider`}>
-            <span className="text-gray-900">Orvium</span>
-            <span className="text-gray-400">Studio</span>
-          </h1>
-          <div className="w-8 h-px bg-gradient-to-r from-emerald-500 to-transparent"></div>
-        </div>
-      )}
     </div>
   );
 };

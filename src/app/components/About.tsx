@@ -41,7 +41,7 @@ export const About: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="mb-8">
-              <Logo size="lg" className="mb-6" />
+              <Logo size={86} className="text-gray-800" />
               <h2 className="text-4xl font-light text-gray-900">
                 ¿Por qué elegirnos?
               </h2>

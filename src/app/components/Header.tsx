@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiZap, FiSun, FiSettings } from 'react-icons/fi';
+import { Logo } from './Logo';
 
 export const Header: React.FC = () => {
   return (
@@ -23,6 +24,9 @@ export const Header: React.FC = () => {
       
       {/* Contenido */}
       <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="flex justify-center mb-12">
+          <Logo size={225} />
+        </div>
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
