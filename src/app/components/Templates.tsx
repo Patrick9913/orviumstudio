@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiLayers, FiMonitor, FiSmartphone, FiShoppingBag, FiBriefcase, FiBookOpen, FiHeart, FiCamera, FiMusic, FiCoffee, FiTrendingUp } from 'react-icons/fi';
+import { FiMonitor, FiShoppingBag, FiBriefcase, FiBookOpen, FiCamera, FiCoffee, FiTrendingUp } from 'react-icons/fi';
 
 // Componente para la vista previa del sitio
-const SitePreview: React.FC<{ demoUrl: string; title: string; icon: React.ComponentType<any> }> = ({ demoUrl, title, icon: Icon }) => {
+const SitePreview: React.FC<{ demoUrl: string; title: string; icon: React.ComponentType<{ className?: string }> }> = ({ demoUrl, title, icon: Icon }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
