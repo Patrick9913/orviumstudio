@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { TechnologiesCarrusel } from "./components/TechnologiesCarrusel";
 import { Testimonials } from "./components/Testimonials";
+import { Templates } from "./components/Templates";
 
 export const App: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ export const App: React.FC = () => {
             <Navbar />
             <Header />
             <Services />
+            <Templates />
             <FAQ />
             <About />
             <TechnologiesCarrusel />
