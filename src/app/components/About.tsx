@@ -127,7 +127,7 @@ export const About: React.FC = () => {
               <div className="w-24 h-24 bg-blue-900 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-medium">
                 PD
               </div>
-              <h4 className="text-xl font-medium text-gray-900 mb-2">Patrick Developer</h4>
+              <h4 className="text-xl font-medium text-gray-900 mb-2">Patrick Ordoñez</h4>
               <p className="text-indigo-500 mb-4 font-medium">Full Stack Developer</p>
               <p className="text-gray-600 text-sm font-light leading-relaxed">
                 Especialista en crear sitios web que convierten visitantes en clientes. Más de 8 años optimizando conversiones.
