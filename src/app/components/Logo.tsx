@@ -13,9 +13,9 @@ export const Logo: React.FC<LogoOrviumProps> = ({
 }) => {
   // Calcular tamaños del texto basados en el tamaño del SVG
   const textScale = size / 56;  // 56 es el tamaño base
-  const orviumSize = Math.round(20 * textScale); // 20px base
-  const studioSize = Math.round(30 * textScale); // 30px base
-  const gap = Math.round(3 * textScale); // 3 = gap-3 en rem
+  const orviumSize = Math.round(24 * textScale); // 24px base - más grande
+  const studioSize = Math.round(18 * textScale); // 18px base - más pequeño para jerarquía
+  const gap = Math.round(4 * textScale); // 4 = gap-4 en rem - más espacio
 
   return (
     <div
@@ -34,35 +34,58 @@ export const Logo: React.FC<LogoOrviumProps> = ({
         className="text-cyan-500"
       >
         <title>OrviumStudio</title>
-        {/* Anillo exterior (O) */}
-        <circle cx="32" cy="32" r="22" stroke="currentColor" strokeWidth="3" />
+        {/* Anillo exterior (O) - más grueso y moderno */}
+        <circle 
+          cx="32" 
+          cy="32" 
+          r="22" 
+          stroke="currentColor" 
+          strokeWidth="3.5"
+          strokeLinecap="round"
+        />
         
-        {/* Línea vertical interna */}
+        {/* Línea vertical interna - más gruesa y con terminaciones redondeadas */}
         <line
           x1="20"
           y1="14"
           x2="20"
           y2="50"
           stroke="currentColor"
-          strokeWidth="3"
+          strokeWidth="3.5"
           strokeLinecap="round"
+        />
+        
+        {/* Punto decorativo - añade sofisticación */}
+        <circle 
+          cx="32" 
+          cy="20" 
+          r="2" 
+          fill="currentColor"
         />
       </svg>
 
       {/* Wordmark - escala con el size */}
       <div className="leading-none">
-        <div className="tracking-wider">
-          {/* Orvium hereda el color del className padre */}
+        <div className="tracking-tight">
+          {/* Orvium - tipografía principal más llamativa */}
           <span 
-            className={`font-semibold ${className}`}
-            style={{ fontSize: `${orviumSize}px` }}
+            className={`font-black tracking-tight ${className}`}
+            style={{ 
+              fontSize: `${orviumSize}px`,
+              letterSpacing: '-0.02em',
+              fontWeight: '900'
+            }}
           >
             Orvium
           </span>
-          {/* Studio siempre cyan-600 */}
+          {/* Studio - tipografía secundaria más elegante */}
           <span 
-            className="font-semibold text-cyan-500"
-            style={{ fontSize: `${studioSize}px` }}
+            className="font-light text-cyan-500 tracking-wider"
+            style={{ 
+              fontSize: `${studioSize}px`,
+              letterSpacing: '0.1em',
+              fontWeight: '300'
+            }}
           >
             Studio
           </span>

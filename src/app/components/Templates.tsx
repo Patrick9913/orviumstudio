@@ -5,50 +5,54 @@ import { motion } from 'framer-motion';
 import { FiMonitor, FiShoppingBag, FiBriefcase, FiBookOpen, FiCamera, FiCoffee, FiTrendingUp } from 'react-icons/fi';
 
 // Componente para la vista previa del sitio
-const SitePreview: React.FC<{ demoUrl: string; title: string; icon: React.ComponentType<{ className?: string }> }> = ({ demoUrl, title, icon: Icon }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+const SitePreview: React.FC<{ demoUrl: string; title: string; icon: React.ComponentType<{ className?: string }>, previewColor: string }> = ({ demoUrl, title, icon: Icon, previewColor }) => {
+  const [showIframe, setShowIframe] = useState(false);
+
+  // Solo mostrar iframe para URLs válidas después de un delay
+  React.useEffect(() => {
+    if (demoUrl !== '#') {
+      const timer = setTimeout(() => {
+        setShowIframe(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [demoUrl]);
 
   if (demoUrl === '#') {
     return (
-      <div className="h-full bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center">
-        <div className="w-16 h-16 bg-indigo-500/20 rounded-lg flex items-center justify-center">
-          <Icon className="w-8 h-8 text-indigo-500" />
+      <div className={`h-full bg-gradient-to-br ${previewColor} flex items-center justify-center`}>
+        <div className="w-20 h-20 bg-white/60 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+          <Icon className="w-10 h-10 text-gray-600" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="relative h-full bg-gray-100 overflow-hidden">
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center z-10">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-500"></div>
-        </div>
-      )}
-      
-      {hasError ? (
-        <div className="h-full bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center">
-          <div className="text-center">
-            <Icon className="w-8 h-8 text-indigo-500 mx-auto mb-2" />
-            <p className="text-sm text-gray-500">Vista previa no disponible</p>
+    <div className="relative h-full overflow-hidden">
+      {/* Preview con gradiente de fondo */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${previewColor} flex items-center justify-center`}>
+        <div className="text-center">
+          <div className="w-16 h-16 bg-white/70 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <Icon className="w-8 h-8 text-gray-700" />
           </div>
+          <p className="text-sm text-gray-600 font-medium">{title}</p>
+          <p className="text-xs text-gray-500 mt-1">Cargando vista previa...</p>
         </div>
-      ) : (
+      </div>
+
+      {/* Iframe superpuesto cuando esté listo */}
+      {showIframe && (
         <iframe
           src={demoUrl}
-          className="w-full h-full border-0 transform scale-50 origin-top-left"
+          className="absolute inset-0 w-full h-full border-0 transition-opacity duration-500"
           style={{
-            width: '200%',
-            height: '200%',
             pointerEvents: 'none'
           }}
           title={`Vista previa de ${title}`}
-          onLoad={() => setIsLoading(false)}
-          onError={() => {
-            setIsLoading(false);
-            setHasError(true);
-          }}
+          onError={() => setShowIframe(false)}
+          sandbox="allow-scripts allow-same-origin"
+          loading="lazy"
         />
       )}
     </div>
@@ -64,7 +68,8 @@ export const Templates: React.FC = () => {
       category: 'Profesional',
       features: ['Consulta Gratuita', 'Servicios Legales', 'Equipo Profesional', 'Formularios de Contacto'],
       demoUrl: 'https://landingmodelthree.vercel.app/',
-      technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'TypeScript']
+      technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
+      previewColor: 'from-blue-50 to-indigo-100'
     },
     {
       title: 'Tienda de Ropa Urbana',
@@ -73,7 +78,8 @@ export const Templates: React.FC = () => {
       category: 'E-commerce',
       features: ['Productos Destacados', 'Ofertas Especiales', 'Newsletter', 'Catálogo Online'],
       demoUrl: 'https://landingmodeltwo.vercel.app/',
-      technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Next.js']
+      technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Next.js'],
+      previewColor: 'from-pink-50 to-rose-100'
     },
     {
       title: 'Consultora Empresarial',
@@ -82,7 +88,8 @@ export const Templates: React.FC = () => {
       category: 'Consultoría',
       features: ['Servicios Especializados', 'Estadísticas', 'Formulario Contacto', 'Diseño Corporativo'],
       demoUrl: 'https://landingmodelone.vercel.app/',
-      technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'React']
+      technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'React'],
+      previewColor: 'from-emerald-50 to-teal-100'
     },
     {
       title: 'E-commerce Moderno',
@@ -90,8 +97,9 @@ export const Templates: React.FC = () => {
       icon: FiShoppingBag,
       category: 'E-commerce',
       features: ['Carrito de Compras', 'Pagos Seguros', 'Panel Admin', 'Responsive'],
-      demoUrl: '#',
-      technologies: ['React', 'Next.js', 'Stripe', 'MongoDB']
+      demoUrl: 'https://plantilla-ecommerce-lime.vercel.app/',
+      technologies: ['React', 'Next.js', 'Stripe', 'MongoDB'],
+      previewColor: 'from-purple-50 to-violet-100'
     },
     {
       title: 'Sitio Corporativo',
@@ -100,7 +108,8 @@ export const Templates: React.FC = () => {
       category: 'Corporativo',
       features: ['SEO Optimizado', 'Formularios', 'Blog Integrado', 'Analytics'],
       demoUrl: '#',
-      technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'TypeScript']
+      technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'TypeScript'],
+      previewColor: 'from-slate-50 to-gray-100'
     },
     {
       title: 'Portfolio Creativo',
@@ -109,7 +118,8 @@ export const Templates: React.FC = () => {
       category: 'Portfolio',
       features: ['Galería Interactiva', 'Animaciones', 'Contacto Directo', 'Redes Sociales'],
       demoUrl: '#',
-      technologies: ['React', 'Framer Motion', 'GSAP', 'Sass']
+      technologies: ['React', 'Framer Motion', 'GSAP', 'Sass'],
+      previewColor: 'from-orange-50 to-amber-100'
     },
     {
       title: 'Blog Personal',
@@ -118,7 +128,8 @@ export const Templates: React.FC = () => {
       category: 'Blog',
       features: ['CMS Integrado', 'Comentarios', 'Categorías', 'Búsqueda'],
       demoUrl: '#',
-      technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL']
+      technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL'],
+      previewColor: 'from-green-50 to-emerald-100'
     },
     {
       title: 'Restaurante & Café',
@@ -127,7 +138,8 @@ export const Templates: React.FC = () => {
       category: 'Restaurante',
       features: ['Menú Digital', 'Reservas Online', 'Galería', 'Ubicación'],
       demoUrl: '#',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps']
+      technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps'],
+      previewColor: 'from-amber-50 to-yellow-100'
     },
     {
       title: 'Aplicación SaaS',
@@ -136,7 +148,8 @@ export const Templates: React.FC = () => {
       category: 'SaaS',
       features: ['Dashboard', 'Autenticación', 'Subscripciones', 'API REST'],
       demoUrl: '#',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'JWT']
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
+      previewColor: 'from-cyan-50 to-blue-100'
     }
   ];
 
@@ -183,75 +196,74 @@ export const Templates: React.FC = () => {
         </motion.div>
 
         {/* Grid de plantillas */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {templates.map((template, index) => (
             <motion.a
               key={index}
               href={template.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-white border border-gray-200 overflow-hidden hover:border-indigo-500 transition-all duration-300 hover:shadow-lg cursor-pointer"
+              className="group block bg-white border border-gray-100 overflow-hidden hover:border-gray-200 transition-all duration-500 hover:shadow-xl cursor-pointer rounded-2xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ y: -8 }}
             >
               {/* Vista previa del sitio */}
-              <div className="h-48 relative overflow-hidden">
+              <div className="h-80 relative overflow-hidden">
                 <SitePreview 
                   demoUrl={template.demoUrl} 
                   title={template.title} 
-                  icon={template.icon} 
+                  icon={template.icon}
+                  previewColor={template.previewColor}
                 />
-                {/* Overlay para indicar que es clickeable */}
-                <div className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
-                  <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="text-sm font-medium text-gray-700">Ver Demo</span>
+                {/* Overlay minimalista */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full">
+                    <span className="text-sm font-medium text-gray-800">Ver Demo</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-8">
                 {/* Categoría */}
-                <div className="mb-4">
-                  <div className="inline-block bg-indigo-500/10 text-indigo-600 text-sm font-medium px-3 py-1">
+                <div className="mb-6">
+                  <div className="inline-block bg-gray-100 text-gray-600 text-sm font-medium px-4 py-2 rounded-full">
                     {template.category}
                   </div>
                 </div>
 
                 {/* Título y descripción */}
-                <h3 className="text-xl font-medium text-gray-900 mb-3">
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
                   {template.title}
                 </h3>
-                <p className="text-gray-600 mb-4 font-light text-sm">
+                <p className="text-gray-600 mb-6 font-light leading-relaxed">
                   {template.description}
                 </p>
 
-                {/* Características */}
-                <div className="space-y-2 mb-6">
-                  {template.features.slice(0, 3).map((feature, featureIndex) => (
+                {/* Características simplificadas */}
+                <div className="space-y-3 mb-8">
+                  {template.features.slice(0, 2).map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <svg className="h-4 w-4 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
+                      <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-3"></div>
                       {feature}
                     </div>
                   ))}
                 </div>
 
-                {/* Tecnologías */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {template.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-slate-100 text-gray-600 text-xs px-2 py-1 font-light">
+                {/* Tecnologías minimalistas */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {template.technologies.slice(0, 3).map((tech, techIndex) => (
+                    <span key={techIndex} className="bg-gray-50 text-gray-500 text-xs px-3 py-1.5 font-light rounded-md">
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Botón de demo */}
+                {/* Botón de demo minimalista */}
                 <div className="text-center">
-                  <span className="inline-flex items-center text-indigo-500 hover:text-indigo-600 font-medium text-sm transition-colors">
+                  <span className="inline-flex items-center text-gray-600 group-hover:text-indigo-500 font-medium text-sm transition-colors duration-300">
                     Ver Demo →
                   </span>
                 </div>
@@ -270,10 +282,10 @@ export const Templates: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl p-8">
             <h3 className="text-2xl font-light text-gray-900 mb-4">
-              ¿Te gusta lo que ves?
+            ¿Querés algo único para tu marca?
             </h3>
             <p className="text-gray-600 mb-6 font-light">
-              Podemos personalizar cualquiera de estas plantillas o crear algo completamente nuevo para tu proyecto
+            Personalizamos cada diseño o creamos algo 100 % a medida para vos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 

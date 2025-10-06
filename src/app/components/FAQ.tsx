@@ -15,8 +15,8 @@ export const FAQ: React.FC = () => {
     {
       category: 'Precios y Costos',
       icon: FiDollarSign,
-      color: 'text-emerald-500',
-      bgColor: 'bg-emerald-100',
+      description: 'Información sobre costos, cotizaciones y planes de pago flexibles.',
+      cardColor: 'from-emerald-50 to-green-100',
       items: [
         {
           question: '¿Cómo cotizan los proyectos?',
@@ -35,8 +35,8 @@ export const FAQ: React.FC = () => {
     {
       category: 'Tiempo y Proceso',
       icon: FiClock,
-      color: 'text-blue-500',
-      bgColor: 'bg-blue-100',
+      description: 'Tiempos de desarrollo, metodologías y seguimiento de proyectos.',
+      cardColor: 'from-blue-50 to-indigo-100',
       items: [
         {
           question: '¿Cuánto tiempo toma desarrollar un sitio web?',
@@ -55,8 +55,8 @@ export const FAQ: React.FC = () => {
     {
       category: 'Tecnología y Seguridad',
       icon: FiShield,
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-100',
+      description: 'Tecnologías utilizadas, seguridad y confiabilidad de nuestros sistemas.',
+      cardColor: 'from-purple-50 to-violet-100',
       items: [
         {
           question: '¿Por qué usan Firebase en lugar de WordPress?',
@@ -75,8 +75,8 @@ export const FAQ: React.FC = () => {
     {
       category: 'SEO y Marketing',
       icon: FiZap,
-      color: 'text-orange-500',
-      bgColor: 'bg-orange-100',
+      description: 'Posicionamiento en Google, analytics y estrategias de marketing digital.',
+      cardColor: 'from-orange-50 to-amber-100',
       items: [
         {
           question: '¿Mi sitio aparecerá en Google?',
@@ -112,72 +112,78 @@ export const FAQ: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Grid de dos columnas para desktop */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-8 lg:items-start">
+        <div className="grid md:grid-cols-2 gap-12">
           {faqs.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5 h-fit"
+              className="group bg-white border border-gray-100 overflow-hidden hover:border-gray-200 transition-all duration-500 hover:shadow-xl cursor-pointer rounded-2xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -8 }}
             >
-              {/* Header de la categoría */}
-              <div className="mb-4 pb-3 border-b border-gray-100">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {category.category}
-                </h3>
+              {/* Área superior con gradiente */}
+              <div className={`h-48 bg-gradient-to-br ${category.cardColor} flex items-center justify-center`}>
+                <div className="w-20 h-20 bg-white/60 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                  <category.icon className="w-10 h-10 text-gray-600" />
+                </div>
               </div>
 
-              {/* Preguntas de la categoría */}
-              <div className="space-y-3">
-                {category.items.map((item, itemIndex) => {
-                  const globalIndex = categoryIndex * 10 + itemIndex;
-                  const isOpen = openItem === globalIndex;
-                  
-                  return (
-                    <div key={itemIndex}>
-                      <button
-                        className="w-full text-left flex items-start justify-between gap-3 group"
-                        onClick={() => toggleItem(globalIndex)}
-                      >
-                        <span className="font-medium text-gray-900 text-sm group-hover:text-emerald-600 transition-colors flex-1">
-                          {item.question}
-                        </span>
-                        <motion.div
-                          animate={{ rotate: isOpen ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="flex-shrink-0 mt-0.5"
-                        >
-                          <FiChevronDown className={`w-4 h-4 ${isOpen ? 'text-emerald-600' : 'text-gray-400'} transition-colors`} />
-                        </motion.div>
-                      </button>
-                      
-                      <motion.div
-                        className="overflow-hidden"
-                        initial={false}
-                        animate={{ 
-                          height: isOpen ? 'auto' : 0,
-                          opacity: isOpen ? 1 : 0
-                        }}
-                        transition={{ 
-                          height: { duration: 0.3, ease: 'easeInOut' },
-                          opacity: { duration: 0.2, ease: 'easeInOut' }
-                        }}
-                      >
-                        <p className="text-gray-600 text-sm leading-relaxed mt-2 pr-6 pb-1">
-                          {item.answer}
-                        </p>
-                      </motion.div>
+              <div className="p-8">
+                {/* Título y descripción */}
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  {category.category}
+                </h3>
+                <p className="text-gray-600 mb-6 font-light leading-relaxed">
+                  {category.description}
+                </p>
 
-                      {/* Divisor sutil entre preguntas */}
-                      {itemIndex < category.items.length - 1 && (
-                        <div className="border-b border-gray-100 my-3"></div>
-                      )}
-                    </div>
-                  );
-                })}
+                {/* Preguntas de la categoría */}
+                <div className="space-y-3">
+                  {category.items.map((item, itemIndex) => {
+                    const globalIndex = categoryIndex * 10 + itemIndex;
+                    const isOpen = openItem === globalIndex;
+                    
+                    return (
+                      <motion.div
+                        key={itemIndex}
+                        className="border border-gray-100 rounded-lg overflow-hidden hover:border-gray-200 transition-colors duration-300"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: itemIndex * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <button
+                          className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300"
+                          onClick={() => toggleItem(globalIndex)}
+                        >
+                          <span className="font-medium text-gray-900 pr-4 text-sm">
+                            {item.question}
+                          </span>
+                          {isOpen ? (
+                            <FiChevronUp className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                          ) : (
+                            <FiChevronDown className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                          )}
+                        </button>
+                        
+                        <motion.div
+                          className="overflow-hidden"
+                          initial={false}
+                          animate={{ height: isOpen ? 'auto' : 0 }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        >
+                          <div className="px-4 pb-3">
+                            <p className="text-gray-600 leading-relaxed text-sm">
+                              {item.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </motion.div>
           ))}

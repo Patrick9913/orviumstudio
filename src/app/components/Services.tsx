@@ -9,38 +9,44 @@ export const Services: React.FC = () => {
     {
       icon: FiGlobe,
       title: 'Desarrollo Web',
-      description: 'Sitios web modernos, responsivos y optimizados para SEO que convierten visitantes en clientes.',
-      features: ['Responsive Design', 'SEO Optimizado', 'Velocidad de Carga', 'Seguridad Avanzada']
+      description: 'Sitios modernos, rápidos y escalables.',
+      features: ['Responsive Design', 'SEO Optimizado', 'Velocidad de Carga', 'Seguridad Avanzada'],
+      cardColor: 'from-blue-50 to-indigo-100'
     },
     {
       icon: FiZap,
       title: 'Aplicaciones Web',
       description: 'Aplicaciones web complejas y sistemas de gestión empresarial personalizados.',
-      features: ['SPA & PWA', 'Base de Datos', 'Autenticación', 'Escalabilidad']
+      features: ['SPA & PWA', 'Base de Datos', 'Autenticación', 'Escalabilidad'],
+      cardColor: 'from-purple-50 to-violet-100'
     },
     {
       icon: FiShoppingCart,
       title: 'E-commerce',
-      description: 'Tiendas online completas con sistemas de pago seguros y gestión de inventario.',
-      features: ['Pagos Seguros', 'Gestión Inventario', 'Panel Admin', 'Analytics Avanzado']
+      description: 'Tu tienda online lista para vender 24/7.',
+      features: ['Pagos Seguros', 'Gestión Inventario', 'Panel Admin', 'Analytics Avanzado'],
+      cardColor: 'from-emerald-50 to-teal-100'
     },
     {
       icon: FiEdit3,
       title: 'Diseño UI/UX',
-      description: 'Interfaces web intuitivas y atractivas que mejoran la experiencia del usuario.',
-      features: ['Prototipado', 'User Research', 'Design System', 'Testing Usuario']
+      description: 'Tu marca con identidad, tu sitio con impacto.',
+      features: ['Prototipado', 'User Research', 'Design System', 'Testing Usuario'],
+      cardColor: 'from-pink-50 to-rose-100'
     },
     {
       icon: FiTrendingUp,
       title: 'Consultoría Web',
       description: 'Asesoramiento estratégico para optimizar tu presencia digital y mejorar conversiones.',
-      features: ['Auditoría Web', 'Estrategia Digital', 'Optimización SEO', 'Análisis de Datos']
+      features: ['Auditoría Web', 'Estrategia Digital', 'Optimización SEO', 'Análisis de Datos'],
+      cardColor: 'from-orange-50 to-amber-100'
     },
     {
       icon: FiTool,
       title: 'Mantenimiento',
       description: 'Soporte técnico continuo y actualizaciones para mantener tu sitio web funcionando perfectamente.',
-      features: ['Soporte 24/7', 'Actualizaciones', 'Monitoreo', 'Backup Automático']
+      features: ['Soporte 24/7', 'Actualizaciones', 'Monitoreo', 'Backup Automático'],
+      cardColor: 'from-cyan-50 to-blue-100'
     }
   ];
 
@@ -58,40 +64,47 @@ export const Services: React.FC = () => {
             Nuestros Servicios
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-            Ofrecemos soluciones digitales completas para impulsar tu negocio hacia el éxito
+          Soluciones digitales pensadas para hacer crecer tu negocio.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {services.map((service, index) => (
             <motion.div 
               key={index} 
-              className="bg-white border border-gray-200 p-8 hover:border-indigo-500 transition-colors duration-300"
+              className="group bg-white border border-gray-100 overflow-hidden hover:border-gray-200 transition-all duration-500 hover:shadow-xl cursor-pointer rounded-2xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ y: -8 }}
             >
-              <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
-                <service.icon className="w-6 h-6 text-indigo-500" />
+              {/* Área superior con gradiente */}
+              <div className={`h-48 bg-gradient-to-br ${service.cardColor} flex items-center justify-center`}>
+                <div className="w-20 h-20 bg-white/60 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                  <service.icon className="w-10 h-10 text-gray-600" />
+                </div>
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-6 font-light">
-                {service.description}
-              </p>
-              <ul className="space-y-3">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                    <svg className="h-4 w-4 text-indigo-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+
+              <div className="p-8">
+                {/* Título y descripción */}
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6 font-light leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Características simplificadas */}
+                <div className="space-y-3">
+                  {service.features.slice(0, 3).map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center text-sm text-gray-600">
+                      <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-3"></div>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -109,7 +122,7 @@ export const Services: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Solicitar Cotización
+            Empeza tu proyecto gratis
           </motion.a>
         </motion.div>
       </div>

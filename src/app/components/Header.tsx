@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Creamos sitios web y aplicaciones web modernas que impulsan tu negocio hacia el éxito digital
+            Creamos webs y apps que venden mas, cargan mas rapido y te hacen destacar frente a tu competencia.
           </motion.p>
           <motion.div 
             className="flex flex-col sm:flex-row gap-6 justify-center"
@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Comenzar Proyecto
+              Quiero una propuesta gratis
             </motion.a>
             <motion.a 
               href="#servicios" 
@@ -92,7 +92,7 @@ export const Header: React.FC = () => {
               <FiZap className="w-8 h-8 text-indigo-400" />
             </div>
             <h3 className="text-xl font-medium mb-4">Desarrollo Web Rápido</h3>
-            <p className="text-gray-300 font-light">Entregamos sitios web en tiempo récord sin comprometer la calidad</p>
+            <p className="text-gray-300 font-light">Sitio 10 veces mas rapidos que wordpress</p>
           </motion.article>
           <motion.article 
             className="bg-white/5 backdrop-blur-sm p-8"
@@ -102,8 +102,8 @@ export const Header: React.FC = () => {
             <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
               <FiSun className="w-8 h-8 text-indigo-400" />
             </div>
-            <h3 className="text-xl font-medium mb-4">Diseño Web Innovador</h3>
-            <p className="text-gray-300 font-light">Creamos experiencias web únicas que destacan tu marca</p>
+            <h3 className="text-xl font-medium mb-4">Diseño Web Seguro</h3>
+            <p className="text-gray-300 font-light">Tecnologias usadas por Google y Netflix</p>
           </motion.article>
           <motion.article 
             className="bg-white/5 backdrop-blur-sm p-8"
@@ -113,8 +113,8 @@ export const Header: React.FC = () => {
             <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
               <FiSettings className="w-8 h-8 text-indigo-400" />
             </div>
-            <h3 className="text-xl font-medium mb-4">Soporte Continuo</h3>
-            <p className="text-gray-300 font-light">Mantenemos y actualizamos tu proyecto a largo plazo</p>
+            <h3 className="text-xl font-medium mb-4">Ventas</h3>
+            <p className="text-gray-300 font-light">Paginas optimizadas para convertir visitas en clientes</p>
           </motion.article>
         </motion.div>
         </section>
