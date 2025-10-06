@@ -9,7 +9,7 @@ export const Services: React.FC = () => {
     {
       icon: FiGlobe,
       title: 'Desarrollo Web',
-      description: 'Sitios web modernos, responsivos y optimizados para SEO que convierten visitantes en clientes.',
+      description: 'Sitios modernos, rápidos y escalables.',
       features: ['Responsive Design', 'SEO Optimizado', 'Velocidad de Carga', 'Seguridad Avanzada']
     },
     {
@@ -21,13 +21,13 @@ export const Services: React.FC = () => {
     {
       icon: FiShoppingCart,
       title: 'E-commerce',
-      description: 'Tiendas online completas con sistemas de pago seguros y gestión de inventario.',
+      description: 'Tu tienda online lista para vender 24/7.',
       features: ['Pagos Seguros', 'Gestión Inventario', 'Panel Admin', 'Analytics Avanzado']
     },
     {
       icon: FiEdit3,
       title: 'Diseño UI/UX',
-      description: 'Interfaces web intuitivas y atractivas que mejoran la experiencia del usuario.',
+      description: 'Tu marca con identidad, tu sitio con impacto.',
       features: ['Prototipado', 'User Research', 'Design System', 'Testing Usuario']
     },
     {
@@ -58,7 +58,7 @@ export const Services: React.FC = () => {
             Nuestros Servicios
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-            Ofrecemos soluciones digitales completas para impulsar tu negocio hacia el éxito
+          Soluciones digitales pensadas para hacer crecer tu negocio.
           </p>
         </motion.div>
 
@@ -109,7 +109,7 @@ export const Services: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Solicitar Cotización
+            Empeza tu proyecto gratis
           </motion.a>
         </motion.div>
       </div>

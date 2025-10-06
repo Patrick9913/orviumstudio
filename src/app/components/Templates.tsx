@@ -90,7 +90,7 @@ export const Templates: React.FC = () => {
       icon: FiShoppingBag,
       category: 'E-commerce',
       features: ['Carrito de Compras', 'Pagos Seguros', 'Panel Admin', 'Responsive'],
-      demoUrl: '#',
+      demoUrl: 'https://plantilla-ecommerce-lime.vercel.app/',
       technologies: ['React', 'Next.js', 'Stripe', 'MongoDB']
     },
     {
@@ -270,10 +270,10 @@ export const Templates: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl p-8">
             <h3 className="text-2xl font-light text-gray-900 mb-4">
-              ¿Te gusta lo que ves?
+            ¿Querés algo único para tu marca?
             </h3>
             <p className="text-gray-600 mb-6 font-light">
-              Podemos personalizar cualquiera de estas plantillas o crear algo completamente nuevo para tu proyecto
+            Personalizamos cada diseño o creamos algo 100 % a medida para vos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
