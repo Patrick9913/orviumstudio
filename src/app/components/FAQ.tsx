@@ -16,7 +16,7 @@ export const FAQ: React.FC = () => {
       category: 'Precios y Costos',
       icon: FiDollarSign,
       description: 'Información sobre costos, cotizaciones y planes de pago flexibles.',
-      cardColor: 'from-emerald-50 to-green-100',
+      cardColor: 'from-orvium-success/10 to-orvium-success/20',
       items: [
         {
           question: '¿Cómo cotizan los proyectos?',
@@ -36,7 +36,7 @@ export const FAQ: React.FC = () => {
       category: 'Tiempo y Proceso',
       icon: FiClock,
       description: 'Tiempos de desarrollo, metodologías y seguimiento de proyectos.',
-      cardColor: 'from-blue-50 to-indigo-100',
+      cardColor: 'from-orvium-primary-50 to-orvium-primary-light',
       items: [
         {
           question: '¿Cuánto tiempo toma desarrollar un sitio web?',
@@ -56,7 +56,7 @@ export const FAQ: React.FC = () => {
       category: 'Tecnología y Seguridad',
       icon: FiShield,
       description: 'Tecnologías utilizadas, seguridad y confiabilidad de nuestros sistemas.',
-      cardColor: 'from-purple-50 to-violet-100',
+      cardColor: 'from-orvium-accent-light to-orvium-accent',
       items: [
         {
           question: '¿Por qué usan Firebase en lugar de WordPress?',
@@ -76,7 +76,7 @@ export const FAQ: React.FC = () => {
       category: 'SEO y Marketing',
       icon: FiZap,
       description: 'Posicionamiento en Google, analytics y estrategias de marketing digital.',
-      cardColor: 'from-orange-50 to-amber-100',
+      cardColor: 'from-orvium-warning/10 to-orvium-warning/20',
       items: [
         {
           question: '¿Mi sitio aparecerá en Google?',

@@ -1,8 +1,64 @@
 @import "tailwindcss";
 
+/* Paleta de colores OrviumStudio */
+:root {
+  /* Colores principales basados en el logo */
+  --orvium-primary: #06b6d4; /* cyan-500 - color principal del logo */
+  --orvium-primary-dark: #0891b2; /* cyan-600 - versión más oscura */
+  --orvium-primary-light: #67e8f9; /* cyan-300 - versión más clara */
+  --orvium-primary-50: #ecfeff; /* cyan-50 - versión muy clara */
+  
+  /* Colores neutros */
+  --orvium-gray-900: #111827; /* gray-900 - texto principal */
+  --orvium-gray-800: #1f2937; /* gray-800 - texto secundario */
+  --orvium-gray-700: #374151; /* gray-700 - texto terciario */
+  --orvium-gray-600: #4b5563; /* gray-600 - texto deshabilitado */
+  --orvium-gray-500: #6b7280; /* gray-500 - bordes */
+  --orvium-gray-400: #9ca3af; /* gray-400 - bordes suaves */
+  --orvium-gray-300: #d1d5db; /* gray-300 - bordes muy suaves */
+  --orvium-gray-200: #e5e7eb; /* gray-200 - fondos suaves */
+  --orvium-gray-100: #f3f4f6; /* gray-100 - fondos muy suaves */
+  --orvium-gray-50: #f9fafb; /* gray-50 - fondos principales */
+  
+  /* Colores de acento */
+  --orvium-accent: #0ea5e9; /* sky-500 - acento complementario */
+  --orvium-accent-dark: #0284c7; /* sky-600 */
+  --orvium-accent-light: #7dd3fc; /* sky-300 */
+  
+  /* Colores de estado */
+  --orvium-success: #10b981; /* emerald-500 */
+  --orvium-warning: #f59e0b; /* amber-500 */
+  --orvium-error: #ef4444; /* red-500 */
+  
+  /* Gradientes */
+  --orvium-gradient-primary: linear-gradient(135deg, var(--orvium-primary) 0%, var(--orvium-accent) 100%);
+  --orvium-gradient-neutral: linear-gradient(135deg, var(--orvium-gray-50) 0%, var(--orvium-gray-100) 100%);
+  --orvium-gradient-dark: linear-gradient(135deg, var(--orvium-gray-800) 0%, var(--orvium-gray-900) 100%);
+}
+
+/* Clases utilitarias personalizadas */
+.text-orvium-primary { color: var(--orvium-primary); }
+.text-orvium-primary-dark { color: var(--orvium-primary-dark); }
+.text-orvium-primary-light { color: var(--orvium-primary-light); }
+.text-orvium-gray-900 { color: var(--orvium-gray-900); }
+.text-orvium-gray-800 { color: var(--orvium-gray-800); }
+.text-orvium-gray-700 { color: var(--orvium-gray-700); }
+
+.bg-orvium-primary { background-color: var(--orvium-primary); }
+.bg-orvium-primary-dark { background-color: var(--orvium-primary-dark); }
+.bg-orvium-primary-light { background-color: var(--orvium-primary-light); }
+.bg-orvium-primary-50 { background-color: var(--orvium-primary-50); }
+
+.bg-orvium-gradient-primary { background: var(--orvium-gradient-primary); }
+.bg-orvium-gradient-neutral { background: var(--orvium-gradient-neutral); }
+.bg-orvium-gradient-dark { background: var(--orvium-gradient-dark); }
+
+.border-orvium-primary { border-color: var(--orvium-primary); }
+.border-orvium-primary-light { border-color: var(--orvium-primary-light); }
+
 .dawning {
     font-family: "Dawning of a New Day", cursive;
     font-weight: 400;
     font-style: normal;
-  }
+}
   

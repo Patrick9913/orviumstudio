@@ -31,7 +31,7 @@ export const Logo: React.FC<LogoOrviumProps> = ({
         viewBox="0 0 64 64"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="text-cyan-500"
+        className="text-orvium-primary"
       >
         <title>OrviumStudio</title>
         {/* Anillo exterior (O) - más grueso y moderno */}
@@ -80,7 +80,7 @@ export const Logo: React.FC<LogoOrviumProps> = ({
           </span>
           {/* Studio - tipografía secundaria más elegante */}
           <span 
-            className="font-light text-cyan-500 tracking-wider"
+            className="font-light text-orvium-primary tracking-wider"
             style={{ 
               fontSize: `${studioSize}px`,
               letterSpacing: '0.1em',

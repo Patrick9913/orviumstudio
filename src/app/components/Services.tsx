@@ -11,42 +11,42 @@ export const Services: React.FC = () => {
       title: 'Desarrollo Web',
       description: 'Sitios modernos, rápidos y escalables.',
       features: ['Responsive Design', 'SEO Optimizado', 'Velocidad de Carga', 'Seguridad Avanzada'],
-      cardColor: 'from-blue-50 to-indigo-100'
+      cardColor: 'from-orvium-primary-50 to-orvium-primary-light'
     },
     {
       icon: FiZap,
       title: 'Aplicaciones Web',
       description: 'Aplicaciones web complejas y sistemas de gestión empresarial personalizados.',
       features: ['SPA & PWA', 'Base de Datos', 'Autenticación', 'Escalabilidad'],
-      cardColor: 'from-purple-50 to-violet-100'
+      cardColor: 'from-orvium-accent-light to-orvium-accent'
     },
     {
       icon: FiShoppingCart,
       title: 'E-commerce',
       description: 'Tu tienda online lista para vender 24/7.',
       features: ['Pagos Seguros', 'Gestión Inventario', 'Panel Admin', 'Analytics Avanzado'],
-      cardColor: 'from-emerald-50 to-teal-100'
+      cardColor: 'from-orvium-success/10 to-orvium-success/20'
     },
     {
       icon: FiEdit3,
       title: 'Diseño UI/UX',
       description: 'Tu marca con identidad, tu sitio con impacto.',
       features: ['Prototipado', 'User Research', 'Design System', 'Testing Usuario'],
-      cardColor: 'from-pink-50 to-rose-100'
+      cardColor: 'from-orvium-warning/10 to-orvium-warning/20'
     },
     {
       icon: FiTrendingUp,
       title: 'Consultoría Web',
       description: 'Asesoramiento estratégico para optimizar tu presencia digital y mejorar conversiones.',
       features: ['Auditoría Web', 'Estrategia Digital', 'Optimización SEO', 'Análisis de Datos'],
-      cardColor: 'from-orange-50 to-amber-100'
+      cardColor: 'from-orvium-gray-50 to-orvium-gray-100'
     },
     {
       icon: FiTool,
       title: 'Mantenimiento',
       description: 'Soporte técnico continuo y actualizaciones para mantener tu sitio web funcionando perfectamente.',
       features: ['Soporte 24/7', 'Actualizaciones', 'Monitoreo', 'Backup Automático'],
-      cardColor: 'from-cyan-50 to-blue-100'
+      cardColor: 'from-orvium-primary-50 to-orvium-primary-light'
     }
   ];
 

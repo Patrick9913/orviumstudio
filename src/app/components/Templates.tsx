@@ -69,7 +69,7 @@ export const Templates: React.FC = () => {
       features: ['Consulta Gratuita', 'Servicios Legales', 'Equipo Profesional', 'Formularios de Contacto'],
       demoUrl: 'https://landingmodelthree.vercel.app/',
       technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
-      previewColor: 'from-blue-50 to-indigo-100'
+      previewColor: 'from-orvium-primary-50 to-orvium-primary-light'
     },
     {
       title: 'Tienda de Ropa Urbana',
@@ -79,7 +79,7 @@ export const Templates: React.FC = () => {
       features: ['Productos Destacados', 'Ofertas Especiales', 'Newsletter', 'Catálogo Online'],
       demoUrl: 'https://landingmodeltwo.vercel.app/',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Next.js'],
-      previewColor: 'from-pink-50 to-rose-100'
+      previewColor: 'from-orvium-warning/10 to-orvium-warning/20'
     },
     {
       title: 'Consultora Empresarial',
@@ -89,7 +89,7 @@ export const Templates: React.FC = () => {
       features: ['Servicios Especializados', 'Estadísticas', 'Formulario Contacto', 'Diseño Corporativo'],
       demoUrl: 'https://landingmodelone.vercel.app/',
       technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'React'],
-      previewColor: 'from-emerald-50 to-teal-100'
+      previewColor: 'from-orvium-success/10 to-orvium-success/20'
     },
     {
       title: 'E-commerce Moderno',
@@ -99,7 +99,7 @@ export const Templates: React.FC = () => {
       features: ['Carrito de Compras', 'Pagos Seguros', 'Panel Admin', 'Responsive'],
       demoUrl: 'https://plantilla-ecommerce-lime.vercel.app/',
       technologies: ['React', 'Next.js', 'Stripe', 'MongoDB'],
-      previewColor: 'from-purple-50 to-violet-100'
+      previewColor: 'from-orvium-accent-light to-orvium-accent'
     },
     {
       title: 'Sitio Corporativo',
@@ -109,7 +109,7 @@ export const Templates: React.FC = () => {
       features: ['SEO Optimizado', 'Formularios', 'Blog Integrado', 'Analytics'],
       demoUrl: '#',
       technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'TypeScript'],
-      previewColor: 'from-slate-50 to-gray-100'
+      previewColor: 'from-orvium-gray-50 to-orvium-gray-100'
     },
     {
       title: 'Portfolio Creativo',
@@ -119,7 +119,7 @@ export const Templates: React.FC = () => {
       features: ['Galería Interactiva', 'Animaciones', 'Contacto Directo', 'Redes Sociales'],
       demoUrl: '#',
       technologies: ['React', 'Framer Motion', 'GSAP', 'Sass'],
-      previewColor: 'from-orange-50 to-amber-100'
+      previewColor: 'from-orvium-warning/10 to-orvium-warning/20'
     },
     {
       title: 'Blog Personal',
@@ -129,7 +129,7 @@ export const Templates: React.FC = () => {
       features: ['CMS Integrado', 'Comentarios', 'Categorías', 'Búsqueda'],
       demoUrl: '#',
       technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL'],
-      previewColor: 'from-green-50 to-emerald-100'
+      previewColor: 'from-orvium-success/10 to-orvium-success/20'
     },
     {
       title: 'Restaurante & Café',
@@ -139,7 +139,7 @@ export const Templates: React.FC = () => {
       features: ['Menú Digital', 'Reservas Online', 'Galería', 'Ubicación'],
       demoUrl: '#',
       technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps'],
-      previewColor: 'from-amber-50 to-yellow-100'
+      previewColor: 'from-orvium-warning/10 to-orvium-warning/20'
     },
     {
       title: 'Aplicación SaaS',
@@ -149,7 +149,7 @@ export const Templates: React.FC = () => {
       features: ['Dashboard', 'Autenticación', 'Subscripciones', 'API REST'],
       demoUrl: '#',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
-      previewColor: 'from-cyan-50 to-blue-100'
+      previewColor: 'from-orvium-primary-50 to-orvium-primary-light'
     }
   ];
 
