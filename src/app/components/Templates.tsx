@@ -101,56 +101,6 @@ export const Templates: React.FC = () => {
       technologies: ['React', 'Next.js', 'Stripe', 'MongoDB'],
       previewColor: 'from-orvium-accent-light to-orvium-accent'
     },
-    {
-      title: 'Sitio Corporativo',
-      description: 'Landing page profesional para empresas con secciones de servicios, equipo y contacto.',
-      icon: FiBriefcase,
-      category: 'Corporativo',
-      features: ['SEO Optimizado', 'Formularios', 'Blog Integrado', 'Analytics'],
-      demoUrl: '#',
-      technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'TypeScript'],
-      previewColor: 'from-orvium-gray-50 to-orvium-gray-100'
-    },
-    {
-      title: 'Portfolio Creativo',
-      description: 'Plantilla elegante para mostrar trabajos creativos, ideal para diseñadores y fotógrafos.',
-      icon: FiCamera,
-      category: 'Portfolio',
-      features: ['Galería Interactiva', 'Animaciones', 'Contacto Directo', 'Redes Sociales'],
-      demoUrl: '#',
-      technologies: ['React', 'Framer Motion', 'GSAP', 'Sass'],
-      previewColor: 'from-orvium-warning/10 to-orvium-warning/20'
-    },
-    {
-      title: 'Blog Personal',
-      description: 'Sistema de blog completo con CMS integrado, comentarios y sistema de categorías.',
-      icon: FiBookOpen,
-      category: 'Blog',
-      features: ['CMS Integrado', 'Comentarios', 'Categorías', 'Búsqueda'],
-      demoUrl: '#',
-      technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL'],
-      previewColor: 'from-orvium-success/10 to-orvium-success/20'
-    },
-    {
-      title: 'Restaurante & Café',
-      description: 'Sitio web para restaurantes con menú interactivo, reservas online y galería de platos.',
-      icon: FiCoffee,
-      category: 'Restaurante',
-      features: ['Menú Digital', 'Reservas Online', 'Galería', 'Ubicación'],
-      demoUrl: '#',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps'],
-      previewColor: 'from-orvium-warning/10 to-orvium-warning/20'
-    },
-    {
-      title: 'Aplicación SaaS',
-      description: 'Dashboard moderno para aplicaciones SaaS con autenticación y panel de usuario.',
-      icon: FiMonitor,
-      category: 'SaaS',
-      features: ['Dashboard', 'Autenticación', 'Subscripciones', 'API REST'],
-      demoUrl: '#',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
-      previewColor: 'from-orvium-primary-50 to-orvium-primary-light'
-    }
   ];
 
   const categories = ['Todas', 'Profesional', 'E-commerce', 'Consultoría', 'Corporativo', 'Portfolio', 'Blog', 'Restaurante', 'SaaS'];
@@ -174,7 +124,7 @@ export const Templates: React.FC = () => {
         </motion.div>
 
         {/* Filtros de categorías */}
-        <motion.div 
+        {/* <motion.div 
           className="flex flex-wrap justify-center gap-4 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -193,7 +143,7 @@ export const Templates: React.FC = () => {
               {category}
             </button>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Grid de plantillas */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">

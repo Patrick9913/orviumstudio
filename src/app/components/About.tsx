@@ -93,7 +93,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Team Section */}
-        <motion.div 
+        {/* <motion.div 
           className="mt-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +168,7 @@ export const About: React.FC = () => {
               </p>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
