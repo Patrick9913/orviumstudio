@@ -20,7 +20,6 @@ export const App: React.FC = () => {
             <FAQ />
             <About />
             <TechnologiesCarrusel />
-            <Testimonials />
             <Contact />
             <Footer />
         </>
