@@ -59,22 +59,22 @@ export const Navbar: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              <a href="#inicio" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
+              <a href="#inicio" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
                 Inicio
               </a>
-              <a href="#servicios" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
+              <a href="#servicios" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
                 Servicios
               </a>
-              <a href="#plantillas" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
+              <a href="#plantillas" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
                 Plantillas
               </a>
-              <a href="#faq" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
+              <a href="#faq" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
                 FAQ
               </a>
-              <a href="#nosotros" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium">
+              <a href="#nosotros" className="text-gray-600 hover:text-blue-900 block px-3 py-2 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
                 Nosotros
               </a>
-              <a href="#contacto" className="bg-emerald-600 text-white block px-3 py-2 text-base font-medium rounded hover:bg-emerald-700">
+              <a href="#contacto" className="bg-emerald-600 text-white block px-3 py-2 text-base font-medium rounded hover:bg-emerald-700" onClick={() => setIsMenuOpen(false)}>
                 Contacto
               </a>
             </div>
