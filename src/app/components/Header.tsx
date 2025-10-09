@@ -7,16 +7,44 @@ import { Logo } from './Logo';
 
 export const Header: React.FC = () => {
   return (
-    <header id="inicio" className="relative bg-blue-900 text-white pt-16 overflow-hidden">
+    <>
+      <style jsx>{`
+        video::-webkit-media-controls-overlay-play-button {
+          display: none !important;
+        }
+        video::-webkit-media-controls-play-button {
+          display: none !important;
+        }
+        video::-webkit-media-controls-start-playback-button {
+          display: none !important;
+        }
+        video::-webkit-media-controls {
+          display: none !important;
+        }
+        video::-webkit-media-controls-panel {
+          display: none !important;
+        }
+        video::-webkit-media-controls-enclosure {
+          display: none !important;
+        }
+      `}</style>
+      <header id="inicio" className="relative bg-blue-900 text-white pt-16 overflow-hidden">
       {/* Video de fondo */}
       <video
         autoPlay
         muted
         loop
         playsInline
+        controls={false}
+        disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{
+          WebkitMediaControlsOverlayPlayButton: { display: 'none !important' },
+          WebkitMediaControlsPlayButton: { display: 'none !important' },
+          WebkitMediaControlsStartPlaybackButton: { display: 'none !important' }
+        }}
       >
-        <source src="/videofondo.mp4" type="video/mp4" />
+        <source src="/tinta.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay para mejorar legibilidad */}
@@ -117,5 +145,6 @@ export const Header: React.FC = () => {
         </section>
       </div>
     </header>
+    </>
   );
 };
