@@ -109,7 +109,7 @@ export const Templates: React.FC = () => {
 
   return (
     <section id="plantillas" className="py-24 bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
@@ -148,7 +148,7 @@ export const Templates: React.FC = () => {
         </motion.div> */}
 
         {/* Grid de plantillas */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12">
           {templates.map((template, index) => (
             <motion.a
               key={index}
