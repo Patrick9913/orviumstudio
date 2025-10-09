@@ -7,7 +7,6 @@ import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { TechnologiesCarrusel } from "./components/TechnologiesCarrusel";
-import { Testimonials } from "./components/Testimonials";
 import { Templates } from "./components/Templates";
 
 export const App: React.FC = () => {
