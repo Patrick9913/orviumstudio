@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
             <p className="text-gray-300 mb-8 max-w-md font-light leading-relaxed">
               Especialistas en desarrollo web y aplicaciones web. Transformamos ideas en soluciones digitales exitosas.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
                 <FiTwitter className="h-6 w-6" />
               </a>
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
               <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
                 <FiLinkedin className="h-6 w-6" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Services */}
@@ -44,8 +44,8 @@ export const Footer: React.FC = () => {
             <h4 className="text-lg font-medium mb-6">Contacto</h4>
             <div className="space-y-3 text-gray-300 font-light">
               <p>orviumstudio@gmail.com</p>
-              <p>+1 (555) 123-4567</p>
-              <p>Buenos Aires, Argentina</p>
+              {/* <p>+1 (555) 123-4567</p>
+              <p>Buenos Aires, Argentina</p> */}
             </div>
           </div>
         </div>

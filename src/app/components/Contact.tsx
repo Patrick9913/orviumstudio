@@ -280,7 +280,7 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                {/* <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
                     <FiPhone className="h-6 w-6 text-indigo-500" />
                   </div>
@@ -298,7 +298,7 @@ export const Contact: React.FC = () => {
                     <p className="font-medium text-gray-900">Ubicación</p>
                     <p className="text-gray-600 font-light">Buenos Aires, Argentina</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
