@@ -10,28 +10,28 @@ export const Services: React.FC = () => {
       icon: FiGlobe,
       title: 'Desarrollo Web',
       description: 'Sitios modernos, rápidos y escalables.',
-      features: ['Responsive Design', 'SEO Optimizado', 'Velocidad de Carga', 'Seguridad Avanzada'],
+      features: ['Diseño responsive que se adapta a todos los dispositivos', 'SEO optimizado incluido para que aparezcas en los primeros resultados', 'Velocidad de Carga = mas conversiones', 'Seguridad Avanzada'],
       cardColor: 'from-orvium-primary-50 to-orvium-primary-light'
     },
     {
       icon: FiZap,
       title: 'Aplicaciones Web',
-      description: 'Aplicaciones web complejas y sistemas de gestión empresarial personalizados.',
-      features: ['SPA & PWA', 'Base de Datos', 'Autenticación', 'Escalabilidad'],
+      description: 'Creamos sistemas inteligentes que hacen más fácil tu operación diaria.',
+      features: ['Aplicaciones modernas (SPA & PWA) rápidas y accesibles desde cualquier navegador', 'Bases de datos integradas que centralizan y automatizan tu información', 'Autenticación segura para múltiples niveles de usuarios', 'Escalabilidad'],
       cardColor: 'from-orvium-accent-light to-orvium-accent'
     },
     {
       icon: FiShoppingCart,
       title: 'E-commerce',
-      description: 'Tu tienda online lista para vender 24/7.',
-      features: ['Pagos Seguros', 'Gestión Inventario', 'Panel Admin', 'Analytics Avanzado'],
+      description: 'Lanzá tu tienda online y empezá a vender mientras dormís.',
+      features: ['Pagos seguros y automatizados con múltiples métodos', 'Gestión completa de productos, stock y envíos', 'Panel de administración fácil de usar y autogestionable', 'Analytics Avanzado'],
       cardColor: 'from-orvium-success/10 to-orvium-success/20'
     },
     {
       icon: FiEdit3,
       title: 'Diseño UI/UX',
-      description: 'Tu marca con identidad, tu sitio con impacto.',
-      features: ['Prototipado', 'User Research', 'Design System', 'Testing Usuario'],
+      description: 'Diseñamos experiencias que enamoran a tus usuarios y hacen que tu marca se quede en su mente.',
+      features: ['Prototipos interactivos que validan ideas antes de desarrollarlas', 'Investigación de usuarios para diseñar con empatía y datos reales', 'Design system unificado para una identidad visual sólida y coherente', 'Testing Usuario'],
       cardColor: 'from-orvium-warning/10 to-orvium-warning/20'
     },
     {
@@ -64,7 +64,7 @@ export const Services: React.FC = () => {
             Nuestros Servicios
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-          Soluciones digitales pensadas para hacer crecer tu negocio.
+          No hacemos solo sitios bonitos, hacemos sitios que venden.
           </p>
         </motion.div>
 
