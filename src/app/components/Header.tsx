@@ -9,6 +9,9 @@ export const Header: React.FC = () => {
   return (
     <>
       <style jsx>{`
+        video {
+          pointer-events: none;
+        }
         video::-webkit-media-controls-overlay-play-button {
           display: none !important;
         }
@@ -27,6 +30,15 @@ export const Header: React.FC = () => {
         video::-webkit-media-controls-enclosure {
           display: none !important;
         }
+        video::-webkit-media-controls-fullscreen-button {
+          display: none !important;
+        }
+        video::-webkit-media-controls-volume-slider {
+          display: none !important;
+        }
+        video::-webkit-media-controls-mute-button {
+          display: none !important;
+        }
       `}</style>
       <header id="inicio" className="relative bg-blue-900 text-white pt-16 overflow-hidden">
       {/* Video de fondo */}
@@ -37,12 +49,9 @@ export const Header: React.FC = () => {
         playsInline
         controls={false}
         disablePictureInPicture
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
-        style={{
-          WebkitMediaControlsOverlayPlayButton: { display: 'none !important' },
-          WebkitMediaControlsPlayButton: { display: 'none !important' },
-          WebkitMediaControlsStartPlaybackButton: { display: 'none !important' }
-        }}
+        onContextMenu={(e) => e.preventDefault()}
       >
         <source src="/tinta.mp4" type="video/mp4" />
       </video>
