@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FiMail, FiPhone, FiMapPin, FiCheck } from 'react-icons/fi';
 import emailjs from '@emailjs/browser';
 
@@ -19,6 +19,32 @@ export const Contact: React.FC = () => {
   }>({ type: null, message: '' });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const currentRef = sectionRef.current;
+    if (!currentRef) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '-50px' }
+    );
+
+    observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+      observer.disconnect();
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -29,18 +55,15 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Limpiar notificaciones anteriores
+
     setNotification({ type: null, message: '' });
     setIsSubmitting(true);
-    
+
     try {
-      // Crear asunto basado en el servicio de interés
-      const subject = formData.service 
+      const subject = formData.service
         ? `Consulta sobre ${formData.service} - ${formData.name}`
         : `Nueva consulta - ${formData.name}`;
 
-      // Enviar email usando EmailJS
       const result = await emailjs.send(
         'service_446kk79',
         'template_orviumstudio',
@@ -55,16 +78,14 @@ export const Contact: React.FC = () => {
         },
         'xPBe8D7sDIw9u-vw6'
       );
-      
+
       console.log('Email enviado exitosamente:', result);
-      
-      // Mostrar notificación de éxito
+
       setNotification({
         type: 'success',
         message: '¡Gracias por tu mensaje! Te contactaremos pronto.'
       });
-      
-      // Limpiar formulario
+
       setFormData({
         name: '',
         email: '',
@@ -73,24 +94,21 @@ export const Contact: React.FC = () => {
         message: ''
       });
 
-      // Ocultar notificación después de 5 segundos
       setTimeout(() => {
         setNotification({ type: null, message: '' });
       }, 5000);
-      
     } catch (error: unknown) {
       console.error('Error detallado al enviar email:', error);
-      
-      // Mostrar información más específica del error
+
       let errorMessage = 'Hubo un error al enviar tu mensaje. ';
-      
+
       if (error && typeof error === 'object' && 'status' in error) {
         const errorStatus = (error as { status: number }).status;
         const errorText = (error as { text?: string }).text;
-        
+
         console.error('Código de error:', errorStatus);
         console.error('Texto del error:', errorText);
-        
+
         if (errorStatus === 400) {
           errorMessage += 'Error de validación. Verifica que todos los campos estén completos.';
         } else if (errorStatus === 401) {
@@ -103,14 +121,12 @@ export const Contact: React.FC = () => {
       } else {
         errorMessage += 'Error desconocido. Por favor, inténtalo de nuevo.';
       }
-      
-      // Mostrar notificación de error
+
       setNotification({
         type: 'error',
         message: errorMessage
       });
 
-      // Ocultar notificación después de 7 segundos
       setTimeout(() => {
         setNotification({ type: null, message: '' });
       }, 7000);
@@ -120,24 +136,27 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-white">
+    <section ref={sectionRef} id="contacto" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-light text-gray-900 mb-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gray-100 text-gray-700 mb-6">
+            <FiMail className="w-7 h-7" />
+          </div>
+          <h2 className="text-4xl font-light text-gray-800 mb-4">
             ¿Listo para comenzar tu proyecto?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
             Contanos sobre tu idea y te ayudamos a hacerla realidad
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-3">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Nombre *
                   </label>
                   <input
@@ -147,12 +166,12 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
                     placeholder="Tu nombre completo"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-3">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email *
                   </label>
                   <input
@@ -162,14 +181,14 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
                     placeholder="tu@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-3">
+                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                   Empresa
                 </label>
                 <input
@@ -178,13 +197,13 @@ export const Contact: React.FC = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
                   placeholder="Nombre de tu empresa"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-3">
+                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
                   Servicio de interés
                 </label>
                 <select
@@ -192,7 +211,7 @@ export const Contact: React.FC = () => {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
                 >
                   <option value="">Selecciona un servicio</option>
                   <option value="web-development">Desarrollo Web</option>
@@ -206,7 +225,7 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-3">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Mensaje *
                 </label>
                 <textarea
@@ -216,7 +235,7 @@ export const Contact: React.FC = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800 resize-none"
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
@@ -224,17 +243,33 @@ export const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 px-6 text-lg font-medium transition-colors flex items-center justify-center ${
-                  isSubmitting 
-                    ? 'bg-emerald-500 text-white cursor-not-allowed' 
-                    : 'bg-emerald-600 text-white hover:bg-emerald-700'
+                className={`w-full py-4 px-6 text-base font-medium transition-colors rounded-lg flex items-center justify-center ${
+                  isSubmitting
+                    ? 'bg-gray-400 text-white cursor-not-allowed'
+                    : 'bg-gray-800 text-white hover:bg-gray-700'
                 }`}
               >
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Enviando...
                   </>
@@ -246,15 +281,19 @@ export const Contact: React.FC = () => {
 
             {/* Notificación */}
             {notification.type && (
-              <div className={`mt-4 p-4 rounded-lg border-l-4 ${
-                notification.type === 'success' 
-                  ? 'bg-green-50 border-green-400 text-green-800' 
-                  : 'bg-red-50 border-red-400 text-red-800'
-              }`}>
+              <div
+                className={`mt-4 p-4 rounded-lg border-l-4 ${
+                  notification.type === 'success'
+                    ? 'bg-gray-50 border-gray-400 text-gray-800'
+                    : 'bg-red-50 border-red-400 text-red-800'
+                }`}
+              >
                 <div className="flex items-center">
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 ${
-                    notification.type === 'success' ? 'bg-green-400' : 'bg-red-400'
-                  }`}>
+                  <div
+                    className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 ${
+                      notification.type === 'success' ? 'bg-gray-400' : 'bg-red-400'
+                    }`}
+                  >
                     <FiCheck className="w-3 h-3 text-white" />
                   </div>
                   <p className="text-sm font-medium">{notification.message}</p>
@@ -264,64 +303,44 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-10">
+          <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-light text-gray-900 mb-8">
+              <h3 className="text-2xl font-light text-gray-800 mb-8">
                 Información de Contacto
               </h3>
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                    <FiMail className="h-6 w-6 text-indigo-500" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <FiMail className="h-6 w-6 text-gray-700" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Email</p>
+                    <p className="font-medium text-gray-800">Email</p>
                     <p className="text-gray-600 font-light">orviumstudio@gmail.com</p>
                   </div>
                 </div>
-
-                {/* <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                    <FiPhone className="h-6 w-6 text-indigo-500" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">Teléfono</p>
-                    <p className="text-gray-600 font-light">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                    <FiMapPin className="h-6 w-6 text-indigo-500" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">Ubicación</p>
-                    <p className="text-gray-600 font-light">Buenos Aires, Argentina</p>
-                  </div>
-                </div> */}
               </div>
             </div>
 
-            <div className="bg-slate-50 p-8">
-              <h4 className="text-lg font-medium text-gray-900 mb-6">
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+              <h4 className="text-lg font-medium text-gray-800 mb-6">
                 ¿Por qué trabajar con nosotros?
               </h4>
               <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <FiCheck className="h-5 w-5 text-indigo-500 mt-0.5" />
-                  <span className="text-gray-600 font-light">Respuesta en menos de 24 horas</span>
+                <li className="flex items-start gap-3">
+                  <FiCheck className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 font-light text-sm">Respuesta en menos de 24 horas</span>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <FiCheck className="h-5 w-5 text-indigo-500 mt-0.5" />
-                  <span className="text-gray-600 font-light">Cotización gratuita y sin compromiso</span>
+                <li className="flex items-start gap-3">
+                  <FiCheck className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 font-light text-sm">Cotización gratuita y sin compromiso</span>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <FiCheck className="h-5 w-5 text-indigo-500 mt-0.5" />
-                  <span className="text-gray-600 font-light">Garantía de satisfacción del 100%</span>
+                <li className="flex items-start gap-3">
+                  <FiCheck className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 font-light text-sm">Garantía de satisfacción del 100%</span>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <FiCheck className="h-5 w-5 text-indigo-500 mt-0.5" />
-                  <span className="text-gray-600 font-light">Soporte post-lanzamiento incluido</span>
+                <li className="flex items-start gap-3">
+                  <FiCheck className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 font-light text-sm">Soporte post-lanzamiento incluido</span>
                 </li>
               </ul>
             </div>

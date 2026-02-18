@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiZap, FiSun, FiSettings } from 'react-icons/fi';
-import { Logo } from './Logo';
+import { FiZap, FiShield, FiTrendingUp } from 'react-icons/fi';
 
 export const Header: React.FC = () => {
   return (
@@ -40,120 +39,144 @@ export const Header: React.FC = () => {
           display: none !important;
         }
       `}</style>
-      <header id="inicio" className="relative bg-blue-900 text-white pt-16 overflow-hidden">
-      {/* Video de fondo */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        controls={false}
-        disablePictureInPicture
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        onContextMenu={(e) => e.preventDefault()}
-      >
-        <source src="/tinta.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Overlay para mejorar legibilidad */}
-      <div className="absolute inset-0 bg-blue-900/50 z-10"></div>
-      
-      {/* Contenido */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+      <header id="inicio" className="relative bg-gray-900 text-white pt-16 overflow-hidden min-h-[90vh] flex flex-col justify-center">
+        {/* Video de fondo */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls={false}
+          disablePictureInPicture
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          onContextMenu={(e) => e.preventDefault()}
         >
-          <motion.h1 
-            className="text-5xl md:text-7xl font-light mb-8 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
+          <source src="/tinta.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay oscuro suave para legibilidad */}
+        <div className="absolute inset-0 bg-gray-900/70 z-10" />
+
+        {/* Contenido */}
+        <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.7 }}
           >
-            Desarrollamos tu
-            <span className="block text-indigo-400 font-normal">Presencia Digital</span>
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-gray-300 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Creamos webs y apps que venden mas, cargan mas rapido y te hacen destacar frente a tu competencia.
-          </motion.p>
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-6 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <motion.a 
-              href="#contacto" 
-              className="bg-emerald-600 text-white px-8 py-4 text-lg font-medium hover:bg-emerald-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <motion.h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 md:mb-8 leading-tight tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
             >
-              Quiero una propuesta gratis
-            </motion.a>
-            <motion.a 
-              href="#servicios" 
-              className="border border-white text-white px-8 py-4 text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              Desarrollamos tu
+              <span className="block mt-2 text-white font-normal">Presencia Digital</span>
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl mb-10 md:mb-12 max-w-2xl mx-auto text-gray-300 font-light leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
             >
-              Nuestros Servicios
-            </motion.a>
+              Creamos webs y apps que venden más, cargan más rápido y te hacen destacar frente a tu competencia.
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.45 }}
+            >
+              <motion.a
+                href="#contacto"
+                className="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-4 text-base font-medium hover:bg-gray-100 transition-colors rounded-lg"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Quiero una propuesta gratis
+              </motion.a>
+              <motion.a
+                href="#servicios"
+                className="inline-flex items-center justify-center border border-white/80 text-white px-8 py-4 text-base font-medium hover:bg-white/10 transition-colors rounded-lg"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Nuestros Servicios
+              </motion.a>
+            </motion.div>
           </motion.div>
-        </motion.div>
-        
-        {/* Features */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24" aria-label="Características principales">
-        <motion.div 
-          className="grid md:grid-cols-3 gap-8 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <motion.article 
-            className="bg-white/5 backdrop-blur-sm p-8"
-            whileHover={{ scale: 1.05, y: -5 }}
-            transition={{ duration: 0.3 }}
+
+          {/* Features */}
+          <section
+            className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20 pb-16 md:pb-24"
+            aria-label="Características principales"
           >
-            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
-              <FiZap className="w-8 h-8 text-indigo-400" />
-            </div>
-            <h3 className="text-xl font-medium mb-4">Desarrollo Web Rápido</h3>
-            <p className="text-gray-300 font-light">Sitio 10 veces mas rapidos que wordpress</p>
-          </motion.article>
-          <motion.article 
-            className="bg-white/5 backdrop-blur-sm p-8"
-            whileHover={{ scale: 1.05, y: -5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
-              <FiSun className="w-8 h-8 text-indigo-400" />
-            </div>
-            <h3 className="text-xl font-medium mb-4">Diseño Web Seguro</h3>
-            <p className="text-gray-300 font-light">Tecnologias usadas por Google y Netflix</p>
-          </motion.article>
-          <motion.article 
-            className="bg-white/5 backdrop-blur-sm p-8"
-            whileHover={{ scale: 1.05, y: -5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
-              <FiSettings className="w-8 h-8 text-indigo-400" />
-            </div>
-            <h3 className="text-xl font-medium mb-4">Ventas</h3>
-            <p className="text-gray-300 font-light">Paginas optimizadas para convertir visitas en clientes</p>
-          </motion.article>
-        </motion.div>
-        </section>
-      </div>
-    </header>
+            <motion.div
+              className="grid md:grid-cols-3 gap-6 md:gap-8 text-center"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <motion.article
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div
+                  className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-5"
+                  aria-hidden="true"
+                >
+                  <FiZap className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-lg md:text-xl font-medium mb-3 text-white">
+                  Desarrollo Web Rápido
+                </h3>
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Sitios 10 veces más rápidos que WordPress
+                </p>
+              </motion.article>
+              <motion.article
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div
+                  className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-5"
+                  aria-hidden="true"
+                >
+                  <FiShield className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-lg md:text-xl font-medium mb-3 text-white">
+                  Diseño Web Seguro
+                </h3>
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Tecnologías usadas por Google y Netflix
+                </p>
+              </motion.article>
+              <motion.article
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div
+                  className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-5"
+                  aria-hidden="true"
+                >
+                  <FiTrendingUp className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-lg md:text-xl font-medium mb-3 text-white">
+                  Ventas
+                </h3>
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Páginas optimizadas para convertir visitas en clientes
+                </p>
+              </motion.article>
+            </motion.div>
+          </section>
+        </div>
+      </header>
     </>
   );
 };

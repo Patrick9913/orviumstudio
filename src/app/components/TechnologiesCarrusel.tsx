@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { FiCpu } from 'react-icons/fi';
 
 export const TechnologiesCarrusel: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -52,10 +53,15 @@ export const TechnologiesCarrusel: React.FC = () => {
   return (
     <div className="w-full py-8 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
      <div className="max-w-7xl mx-auto px-4 mb-10">
-        <h3 className="text-3xl md:text-4xl font-light text-center text-gray-900 mb-3">
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gray-100 text-gray-700">
+            <FiCpu className="w-7 h-7" />
+          </div>
+        </div>
+        <h3 className="text-3xl md:text-4xl font-light text-center text-gray-800 mb-3">
           Tecnología que Impulsa tu Negocio
         </h3>
-        <p className="text-center text-gray-600 text-lg font-light max-w-2xl mx-auto">
+        <p className="text-center text-gray-500 text-lg font-light max-w-2xl mx-auto">
           Usamos las herramientas más avanzadas para crear sitios web rápidos, seguros y que generen ventas
         </p>
       </div> 
