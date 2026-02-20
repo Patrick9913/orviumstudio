@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     siteName: 'OrviumStudio',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/logoor.png',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'OrviumStudio - Desarrollo Web Profesional',
       },
     ],
@@ -64,8 +64,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'OrviumStudio - Desarrollo Web y Aplicaciones Web',
     description: 'Desarrollo web profesional en Buenos Aires. Creamos sitios web modernos y aplicaciones web personalizadas.',
-    images: ['/og-image.jpg'],
+    images: ['/logoor.png'],
     creator: '@orviumstudio',
+  },
+  icons: {
+    icon: '/logoor.png',
+    apple: '/logoor.png',
   },
   robots: {
     index: true,
@@ -97,9 +101,8 @@ export default function RootLayout({
     <html lang="es">
       <head>
       {/* Favicon */}
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      <link rel="icon" href="/favicon.ico" sizes="32x32" />
-      <link rel="apple-touch-icon" href="/icon-192.svg" />
+      <link rel="icon" href="/logoor.png" type="image/png" />
+      <link rel="apple-touch-icon" href="/logoor.png" />
       <link rel="manifest" href="/manifest.json" />
       
       {/* Meta tags adicionales para mejor soporte */}

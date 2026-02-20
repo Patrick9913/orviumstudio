@@ -7,7 +7,7 @@ export const StructuredData: React.FC = () => {
     "name": "OrviumStudio",
     "alternateName": "Orvium Studio",
     "url": "https://orviumstudio.com",
-    "logo": "https://orviumstudio.com/logo.png",
+    "logo": "https://orviumstudio.com/logoor.png",
     "description": "Desarrollo web profesional en Buenos Aires. Creamos sitios web modernos, e-commerce y aplicaciones web personalizadas.",
     "address": {
       "@type": "PostalAddress",
@@ -111,7 +111,7 @@ export const StructuredData: React.FC = () => {
     "@type": "LocalBusiness",
     "@id": "https://orviumstudio.com/#localbusiness",
     "name": "OrviumStudio",
-    "image": "https://orviumstudio.com/logo.png",
+    "image": "https://orviumstudio.com/logoor.png",
     "description": "Desarrollo web profesional en Buenos Aires. Creamos sitios web modernos, e-commerce y aplicaciones web personalizadas.",
     "url": "https://orviumstudio.com",
     "telephone": "+1-555-123-4567",

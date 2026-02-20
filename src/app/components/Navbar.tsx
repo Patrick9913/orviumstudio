@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Logo size={86} className="text-gray-800" />
+              <Logo size={50} className="text-gray-800" />
             </div>
           </div>
 
