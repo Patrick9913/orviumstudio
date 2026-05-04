@@ -2,11 +2,8 @@ import React from "react";
 import { Navbar } from "./components/Navbar";
 import { Header } from "./components/Header";
 import { Services } from "./components/Services";
-import { FAQ } from "./components/FAQ";
-import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { TechnologiesCarrusel } from "./components/TechnologiesCarrusel";
 import { Templates } from "./components/Templates";
 
 export const App: React.FC = () => {
@@ -16,9 +13,6 @@ export const App: React.FC = () => {
             <Header />
             <Services />
             <Templates />
-            <FAQ />
-            <About />
-            <TechnologiesCarrusel />
             <Contact />
             <Footer />
         </>

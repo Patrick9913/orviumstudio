@@ -42,20 +42,11 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#inicio" className={navLinkClass}>
-              Inicio
-            </a>
             <a href="#servicios" className={navLinkClass}>
               Servicios
             </a>
             <a href="#plantillas" className={navLinkClass}>
               Plantillas
-            </a>
-            <a href="#faq" className={navLinkClass}>
-              FAQ
-            </a>
-            <a href="#nosotros" className={navLinkClass}>
-              Nosotros
             </a>
             <a href="#contacto" className={contactClass}>
               Contacto
@@ -89,13 +80,6 @@ export const Navbar: React.FC = () => {
           <div className="md:hidden border-t border-gray-200">
             <div className="px-2 pt-2 pb-4 space-y-1 bg-white">
               <a
-                href="#inicio"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
-              >
-                Inicio
-              </a>
-              <a
                 href="#servicios"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
@@ -108,20 +92,6 @@ export const Navbar: React.FC = () => {
                 className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
               >
                 Plantillas
-              </a>
-              <a
-                href="#faq"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
-              >
-                FAQ
-              </a>
-              <a
-                href="#nosotros"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
-              >
-                Nosotros
               </a>
               <a
                 href="#contacto"

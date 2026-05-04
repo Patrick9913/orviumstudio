@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiZap, FiShield, FiTrendingUp } from 'react-icons/fi';
 
 export const Header: React.FC = () => {
   return (
@@ -39,7 +38,7 @@ export const Header: React.FC = () => {
           display: none !important;
         }
       `}</style>
-      <header id="inicio" className="relative bg-gray-900 text-white pt-16 overflow-hidden min-h-[90vh] flex flex-col justify-center">
+      <header id="inicio" className="relative bg-gray-900 text-white pt-16 overflow-hidden min-h-screen flex flex-col justify-center">
         {/* Video de fondo */}
         <video
           autoPlay
@@ -108,73 +107,6 @@ export const Header: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Features */}
-          <section
-            className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20 pb-16 md:pb-24"
-            aria-label="Características principales"
-          >
-            <motion.div
-              className="grid md:grid-cols-3 gap-6 md:gap-8 text-center"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <motion.article
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div
-                  className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-5"
-                  aria-hidden="true"
-                >
-                  <FiZap className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-medium mb-3 text-white">
-                  Desarrollo Web Rápido
-                </h3>
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Sitios 10 veces más rápidos que WordPress
-                </p>
-              </motion.article>
-              <motion.article
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div
-                  className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-5"
-                  aria-hidden="true"
-                >
-                  <FiShield className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-medium mb-3 text-white">
-                  Diseño Web Seguro
-                </h3>
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Tecnologías usadas por Google y Netflix
-                </p>
-              </motion.article>
-              <motion.article
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div
-                  className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-5"
-                  aria-hidden="true"
-                >
-                  <FiTrendingUp className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-medium mb-3 text-white">
-                  Ventas
-                </h3>
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Páginas optimizadas para convertir visitas en clientes
-                </p>
-              </motion.article>
-            </motion.div>
-          </section>
         </div>
       </header>
     </>

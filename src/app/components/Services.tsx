@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FiGlobe, FiZap, FiShoppingCart, FiEdit3, FiTrendingUp, FiTool, FiLayers } from 'react-icons/fi';
+import { FiGlobe, FiShoppingCart, FiTrendingUp, FiLayers } from 'react-icons/fi';
 
 export const Services: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,13 +42,6 @@ export const Services: React.FC = () => {
         cardColor: 'from-slate-50 to-slate-100'
       },
       {
-        icon: FiZap,
-        title: 'Aplicaciones Web',
-        description: 'Aplicaciones web complejas y sistemas de gestión empresarial personalizados.',
-        features: ['SPA & PWA', 'Base de Datos', 'Autenticación', 'Escalabilidad'],
-        cardColor: 'from-stone-50 to-stone-100'
-      },
-      {
         icon: FiShoppingCart,
         title: 'E-commerce',
         description: 'Tu tienda online lista para vender 24/7.',
@@ -56,25 +49,11 @@ export const Services: React.FC = () => {
         cardColor: 'from-neutral-50 to-neutral-100'
       },
       {
-        icon: FiEdit3,
-        title: 'Diseño UI/UX',
-        description: 'Tu marca con identidad, tu sitio con impacto.',
-        features: ['Prototipado', 'User Research', 'Design System', 'Testing Usuario'],
-        cardColor: 'from-zinc-50 to-zinc-100'
-      },
-      {
         icon: FiTrendingUp,
         title: 'Consultoría Web',
         description: 'Asesoramiento estratégico para optimizar tu presencia digital y mejorar conversiones.',
         features: ['Auditoría Web', 'Estrategia Digital', 'Optimización SEO', 'Análisis de Datos'],
         cardColor: 'from-slate-50 to-slate-100'
-      },
-      {
-        icon: FiTool,
-        title: 'Mantenimiento',
-        description: 'Soporte técnico continuo y actualizaciones para mantener tu sitio web funcionando perfectamente.',
-        features: ['Soporte 24/7', 'Actualizaciones', 'Monitoreo', 'Backup Automático'],
-        cardColor: 'from-stone-50 to-stone-100'
       }
     ],
     []

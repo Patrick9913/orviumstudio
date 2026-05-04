@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { FiMail, FiPhone, FiMapPin, FiCheck } from 'react-icons/fi';
+import { FiMail, FiCheck } from 'react-icons/fi';
 import emailjs from '@emailjs/browser';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    service: '',
     message: ''
   });
 
@@ -46,7 +44,7 @@ export const Contact: React.FC = () => {
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -60,9 +58,7 @@ export const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const subject = formData.service
-        ? `Consulta sobre ${formData.service} - ${formData.name}`
-        : `Nueva consulta - ${formData.name}`;
+      const subject = `Nueva consulta - ${formData.name}`;
 
       const result = await emailjs.send(
         'service_446kk79',
@@ -70,8 +66,8 @@ export const Contact: React.FC = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
-          company: formData.company || 'No especificada',
-          service: formData.service || 'No especificado',
+          company: 'No especificada',
+          service: 'No especificado',
           message: formData.message,
           to_email: 'orviumstudio@gmail.com',
           subject: subject
@@ -89,8 +85,6 @@ export const Contact: React.FC = () => {
       setFormData({
         name: '',
         email: '',
-        company: '',
-        service: '',
         message: ''
       });
 
@@ -185,43 +179,6 @@ export const Contact: React.FC = () => {
                     placeholder="tu@email.com"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Empresa
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
-                  placeholder="Nombre de tu empresa"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                  Servicio de interés
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
-                >
-                  <option value="">Selecciona un servicio</option>
-                  <option value="web-development">Desarrollo Web</option>
-                  <option value="mobile-app">Aplicación Móvil</option>
-                  <option value="ecommerce">E-commerce</option>
-                  <option value="web-app">Aplicación Web</option>
-                  <option value="ui-ux">Diseño UI/UX</option>
-                  <option value="maintenance">Mantenimiento</option>
-                  <option value="consulting">Consultoría</option>
-                </select>
               </div>
 
               <div>
