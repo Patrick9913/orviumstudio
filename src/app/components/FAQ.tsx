@@ -133,22 +133,19 @@ export const FAQ: React.FC = () => {
   });
 
   return (
-    <section ref={sectionRef} id="faq" className="py-24 bg-gray-50/50">
+    <section ref={sectionRef} id="faq" className="py-24 lg:py-32 bg-[#fafafa]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
+          className="mb-16"
           initial={{ opacity: 0, y: 24 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gray-100 text-gray-700 mb-6">
-            <FiHelpCircle className="w-7 h-7" />
-          </div>
-          <h2 className="text-3xl font-light text-gray-800 mb-3">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight mb-4">
             Preguntas Frecuentes
           </h2>
-          <p className="text-gray-500 font-light text-base">
-            Resolvemos las dudas más comunes
+          <p className="text-gray-500 font-light text-lg">
+            Resolvemos las dudas más comunes.
           </p>
         </motion.div>
 
@@ -163,14 +160,14 @@ export const FAQ: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.04 }}
-                className="border border-gray-200 rounded-xl bg-white overflow-hidden hover:border-gray-300 transition-colors"
+                className="border-b border-gray-200 bg-transparent overflow-hidden"
               >
                 <button
                   type="button"
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 group"
+                  className="w-full py-6 text-left flex items-center justify-between gap-4 group"
                   onClick={() => toggleItem(idx)}
                 >
-                  <span className="font-medium text-gray-800 text-sm leading-snug pr-2">
+                  <span className="font-light text-gray-900 text-lg leading-snug pr-2 group-hover:text-gray-500 transition-colors">
                     {item.question}
                   </span>
                   <motion.span
@@ -187,8 +184,8 @@ export const FAQ: React.FC = () => {
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <div className="px-5 pb-4 pt-0">
-                    <p className="text-gray-600 text-sm font-light leading-relaxed">
+                  <div className="pb-6 pt-0">
+                    <p className="text-gray-500 text-base font-light leading-relaxed">
                       {item.answer}
                     </p>
                   </div>
@@ -199,22 +196,17 @@ export const FAQ: React.FC = () => {
         </div>
 
         <motion.div
-          className="mt-12 text-center"
+          className="mt-20 flex justify-start lg:justify-end"
           initial={{ opacity: 0, y: 16 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p className="text-gray-500 text-sm font-light mb-4">
-            ¿Más dudas? Agenda una consulta gratuita.
-          </p>
-          <motion.a
+          <a
             href="#contacto"
-            className="inline-flex items-center justify-center bg-gray-800 text-white px-6 py-3 text-sm font-medium hover:bg-gray-700 transition-colors rounded-lg"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-5 text-sm uppercase tracking-widest hover:bg-gray-800 transition-colors rounded-none"
           >
             Agendar consulta
-          </motion.a>
+          </a>
         </motion.div>
       </div>
     </section>

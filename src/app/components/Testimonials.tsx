@@ -59,11 +59,11 @@ export const Testimonials: React.FC = () => {
         </motion.div>
 
         {/* Grid de testimonios */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-300 transition-all"
+              className="bg-[#fafafa] border border-gray-200 rounded-none p-10 hover:border-gray-400 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

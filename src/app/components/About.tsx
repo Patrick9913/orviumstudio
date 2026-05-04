@@ -57,7 +57,7 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="nosotros" className="py-24 bg-gray-50/50">
+    <section ref={sectionRef} id="nosotros" className="py-24 lg:py-32 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -68,7 +68,7 @@ export const About: React.FC = () => {
             <div className="mb-8">
               <Logo size={86} className="text-gray-800" />
               <div className="flex items-center gap-3 mt-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 text-gray-700">
+                <div className="flex items-center justify-center w-12 h-12 rounded-none bg-[#fafafa] border border-gray-200 text-gray-700">
                   <FiAward className="w-6 h-6" />
                 </div>
                 <h2 className="text-4xl font-light text-gray-800">
@@ -105,8 +105,8 @@ export const About: React.FC = () => {
                 animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
               >
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <value.icon className="w-6 h-6 text-gray-700" />
+                <div className="w-12 h-12 bg-[#fafafa] border border-gray-200 rounded-none flex items-center justify-center flex-shrink-0">
+                  <value.icon className="w-5 h-5 text-gray-700" />
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-800 mb-2">

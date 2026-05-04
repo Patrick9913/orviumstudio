@@ -48,52 +48,53 @@ export const Portfolio: React.FC = () => {
   ];
 
   return (
-    <section id="portafolio" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-light text-gray-900 mb-6">
+    <section id="portafolio" className="py-24 lg:py-32 bg-[#fafafa]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight mb-6">
             Nuestro Portafolio
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-            Proyectos exitosos que demuestran nuestra experiencia y creatividad
+          <p className="text-xl md:text-2xl text-gray-500 font-light leading-relaxed">
+            Proyectos que demuestran nuestra capacidad de resolución.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white border border-gray-200 overflow-hidden hover:border-indigo-500 transition-colors duration-300">
-              <div className="p-8">
-                <div className="w-16 h-16 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
-                  <project.icon className="w-8 h-8 text-indigo-500" />
+            <div key={index} className="bg-white border border-gray-200 overflow-hidden hover:border-gray-900 transition-colors duration-300 rounded-none group">
+              <div className="p-10 flex flex-col h-full">
+                <div className="w-14 h-14 bg-[#fafafa] border border-gray-200 rounded-none flex items-center justify-center mb-8 group-hover:bg-gray-900 group-hover:border-gray-900 transition-colors duration-300">
+                  <project.icon className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <div className="inline-block bg-indigo-500/10 text-indigo-600 text-sm font-medium px-3 py-1 mb-4">
+                <div className="inline-block border border-gray-200 text-gray-500 text-xs uppercase tracking-widest px-3 py-1 mb-6 self-start rounded-none">
                   {project.category}
                 </div>
-                <h3 className="text-xl font-medium text-gray-900 mb-3">
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-6 font-light">
+                <p className="text-gray-500 mb-8 font-light leading-relaxed flex-grow">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-slate-100 text-gray-600 text-xs px-3 py-1 font-light">
+                    <span key={techIndex} className="border border-gray-100 text-gray-400 text-[10px] uppercase tracking-wider px-2 py-1 rounded-none">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <button className="text-indigo-500 hover:text-indigo-600 font-medium text-sm">
-                  Ver Proyecto →
+                <button className="text-gray-900 hover:text-gray-500 uppercase tracking-widest font-medium text-xs transition-colors self-start flex items-center">
+                  <span className="border-b border-gray-900 pb-1 mr-2 group-hover:border-gray-500 transition-colors">Ver Proyecto</span>
+                  <span>→</span>
                 </button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="mt-20 flex justify-start lg:justify-end">
           <a 
             href="#contacto" 
-            className="bg-blue-900 text-white px-8 py-4 text-lg font-medium hover:bg-blue-800 transition-colors"
+            className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-5 text-sm uppercase tracking-widest hover:bg-gray-800 transition-colors rounded-none"
           >
             Ver Más Proyectos
           </a>

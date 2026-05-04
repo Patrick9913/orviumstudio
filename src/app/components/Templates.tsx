@@ -167,29 +167,26 @@ export const Templates: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} id="plantillas" className="py-24 bg-gray-50/50">
+    <section ref={sectionRef} id="plantillas" className="py-24 lg:py-32 bg-white border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-16"
+          className="mb-20 max-w-3xl"
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gray-100 text-gray-700 mb-6">
-            <FiLayout className="w-7 h-7" />
-          </div>
-          <h2 className="text-4xl font-light text-gray-800 mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight mb-6">
             Plantillas Modelo
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
-            Descubre nuestras plantillas pre-diseñadas y personalízalas según tus necesidades
+          <p className="text-xl md:text-2xl text-gray-500 font-light leading-relaxed">
+            Descubre nuestras plantillas pre-diseñadas y personalízalas según tus necesidades.
           </p>
         </motion.div>
 
         {/* Carrusel */}
         <div className="relative">
           {/* Contenedor del carrusel */}
-          <div className="relative overflow-hidden rounded-3xl bg-white shadow-sm">
+          <div className="relative overflow-hidden rounded-none bg-white border border-gray-200">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -234,18 +231,18 @@ export const Templates: React.FC = () => {
                   <div className="space-y-4 mb-8">
                     {currentTemplate?.features.slice(0, 3).map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center text-gray-600">
-                        <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></div>
+                        <div className="w-4 h-[1px] bg-gray-300 mr-4"></div>
                         <span className="text-sm font-light">{feature}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Tecnologías */}
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-2 mb-10">
                     {currentTemplate?.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
-                        className="bg-gray-50 text-gray-500 text-xs px-3 py-1.5 font-light rounded-md border border-gray-100"
+                        className="bg-transparent text-gray-500 text-xs px-3 py-1.5 font-medium uppercase tracking-widest rounded-none border border-gray-200"
                       >
                         {tech}
                       </span>
@@ -257,7 +254,7 @@ export const Templates: React.FC = () => {
                     href={currentTemplate?.demoUrl ?? '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-gray-800 text-white px-8 py-4 text-sm font-medium hover:bg-gray-700 transition-colors duration-300 rounded-lg group"
+                    className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-5 text-xs uppercase tracking-widest font-medium hover:bg-gray-800 transition-colors duration-300 rounded-none group self-start"
                   >
                     Ver Demo
                     <FiExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -269,14 +266,14 @@ export const Templates: React.FC = () => {
             {/* Navegación - Flechas */}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white transition-all duration-300 z-10 group"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-gray-200 rounded-none flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 z-10 group"
               aria-label="Plantilla anterior"
             >
               <FiChevronLeft className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white transition-all duration-300 z-10 group"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-gray-200 rounded-none flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 z-10 group"
               aria-label="Plantilla siguiente"
             >
               <FiChevronRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -302,28 +299,28 @@ export const Templates: React.FC = () => {
 
         {/* CTA final */}
         <motion.div 
-          className="text-center mt-20"
+          className="mt-20 md:mt-32"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100">
-            <h3 className="text-2xl md:text-3xl font-light text-gray-800 mb-4">
+          <div className="bg-[#fafafa] rounded-none p-10 md:p-16 border border-gray-200">
+            <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
               ¿Querés algo único para tu marca?
             </h3>
-            <p className="text-gray-500 mb-8 font-light text-lg max-w-2xl mx-auto">
+            <p className="text-gray-500 mb-10 font-light text-xl">
               Personalizamos cada diseño o creamos algo 100% a medida para vos.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6">
               <a 
                 href="#contacto" 
-                className="bg-gray-800 text-white px-8 py-4 text-base font-medium hover:bg-gray-700 transition-colors rounded-lg"
+                className="bg-gray-900 text-white px-10 py-5 text-xs uppercase tracking-widest font-medium hover:bg-gray-800 transition-colors rounded-none text-center"
               >
                 Solicitar Personalización
               </a>
               <a 
                 href="#contacto" 
-                className="border border-gray-300 text-gray-700 px-8 py-4 text-base font-medium hover:bg-gray-50 transition-colors rounded-lg"
+                className="border border-gray-300 text-gray-900 px-10 py-5 text-xs uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors rounded-none text-center"
               >
                 Consulta Gratuita
               </a>

@@ -21,8 +21,8 @@ export const Navbar: React.FC = () => {
     : 'text-gray-600 hover:text-gray-800 px-3 py-2 text-sm font-medium transition-colors';
 
   const contactClass = atTop
-    ? 'border border-white text-white bg-transparent px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-white hover:text-blue-900 transition-colors'
-    : 'bg-gray-800 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors';
+    ? 'border border-white text-white bg-transparent px-6 py-2.5 rounded-none text-xs uppercase tracking-widest font-medium hover:bg-white hover:text-gray-900 transition-colors'
+    : 'bg-gray-900 text-white px-6 py-2.5 rounded-none text-xs uppercase tracking-widest font-medium hover:bg-gray-800 transition-colors';
 
   return (
     <nav
@@ -82,21 +82,21 @@ export const Navbar: React.FC = () => {
               <a
                 href="#servicios"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
+                className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 block px-3 py-2.5 text-sm uppercase tracking-widest font-medium rounded-none transition-colors"
               >
                 Servicios
               </a>
               <a
                 href="#plantillas"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 block px-3 py-2.5 text-base font-medium rounded-lg transition-colors"
+                className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 block px-3 py-2.5 text-sm uppercase tracking-widest font-medium rounded-none transition-colors"
               >
                 Plantillas
               </a>
               <a
                 href="#contacto"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-gray-800 text-white block px-3 py-2.5 text-base font-medium rounded-lg hover:bg-gray-700 transition-colors mt-2"
+                className="bg-gray-900 text-white block px-3 py-3 text-sm uppercase tracking-widest font-medium rounded-none hover:bg-gray-800 transition-colors mt-4 text-center"
               >
                 Contacto
               </a>

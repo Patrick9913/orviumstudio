@@ -130,17 +130,14 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} id="contacto" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gray-100 text-gray-700 mb-6">
-            <FiMail className="w-7 h-7" />
-          </div>
-          <h2 className="text-4xl font-light text-gray-800 mb-4">
-            ¿Listo para comenzar tu proyecto?
+    <section ref={sectionRef} id="contacto" className="py-24 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight mb-6">
+            ¿Listo para comenzar?
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
-            Contanos sobre tu idea y te ayudamos a hacerla realidad
+          <p className="text-xl md:text-2xl text-gray-500 font-light leading-relaxed">
+            Contanos sobre tu idea y te ayudamos a hacerla realidad.
           </p>
         </div>
 
@@ -150,7 +147,7 @@ export const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-xs font-medium uppercase tracking-widest text-gray-500 mb-3">
                     Nombre *
                   </label>
                   <input
@@ -160,12 +157,12 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
+                    className="w-full px-4 py-4 border border-gray-300 rounded-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-colors bg-[#fafafa] text-gray-900"
                     placeholder="Tu nombre completo"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-xs font-medium uppercase tracking-widest text-gray-500 mb-3">
                     Email *
                   </label>
                   <input
@@ -175,14 +172,14 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800"
+                    className="w-full px-4 py-4 border border-gray-300 rounded-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-colors bg-[#fafafa] text-gray-900"
                     placeholder="tu@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-xs font-medium uppercase tracking-widest text-gray-500 mb-3">
                   Mensaje *
                 </label>
                 <textarea
@@ -192,7 +189,7 @@ export const Contact: React.FC = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors bg-white text-gray-800 resize-none"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-colors bg-[#fafafa] text-gray-900 resize-none"
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
@@ -200,11 +197,10 @@ export const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 px-6 text-base font-medium transition-colors rounded-lg flex items-center justify-center ${
-                  isSubmitting
+                className={`w-full py-5 px-6 text-sm uppercase tracking-widest font-medium transition-colors rounded-none flex items-center justify-center ${isSubmitting
                     ? 'bg-gray-400 text-white cursor-not-allowed'
-                    : 'bg-gray-800 text-white hover:bg-gray-700'
-                }`}
+                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                  }`}
               >
                 {isSubmitting ? (
                   <>
@@ -239,17 +235,15 @@ export const Contact: React.FC = () => {
             {/* Notificación */}
             {notification.type && (
               <div
-                className={`mt-4 p-4 rounded-lg border-l-4 ${
-                  notification.type === 'success'
+                className={`mt-4 p-4 rounded-lg border-l-4 ${notification.type === 'success'
                     ? 'bg-gray-50 border-gray-400 text-gray-800'
                     : 'bg-red-50 border-red-400 text-red-800'
-                }`}
+                  }`}
               >
                 <div className="flex items-center">
                   <div
-                    className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 ${
-                      notification.type === 'success' ? 'bg-gray-400' : 'bg-red-400'
-                    }`}
+                    className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 ${notification.type === 'success' ? 'bg-gray-400' : 'bg-red-400'
+                      }`}
                   >
                     <FiCheck className="w-3 h-3 text-white" />
                   </div>
@@ -260,26 +254,26 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-12">
             <div>
-              <h3 className="text-2xl font-light text-gray-800 mb-8">
+              <h3 className="text-2xl font-light text-gray-900 mb-8">
                 Información de Contacto
               </h3>
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <FiMail className="h-6 w-6 text-gray-700" />
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 bg-[#fafafa] border border-gray-200 rounded-none flex items-center justify-center">
+                    <FiMail className="h-6 w-6 text-gray-500" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800">Email</p>
-                    <p className="text-gray-600 font-light">orviumstudio@gmail.com</p>
+                    <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">Email</p>
+                    <p className="text-gray-900 font-light text-lg">orviumstudio@gmail.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
-              <h4 className="text-lg font-medium text-gray-800 mb-6">
+            <div className="bg-[#fafafa] rounded-none p-10 border border-gray-200">
+              <h4 className="text-xl font-light text-gray-900 mb-8">
                 ¿Por qué trabajar con nosotros?
               </h4>
               <ul className="space-y-4">
