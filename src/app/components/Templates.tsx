@@ -86,27 +86,10 @@ export const Templates: React.FC = () => {
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Next.js'],
       previewColor: 'from-stone-50 to-stone-100'
     },
-    {
-      title: 'Consultora Empresarial',
-      description: 'Sitio web corporativo para consultoras con servicios especializados y formulario de contacto.',
-      icon: FiTrendingUp,
-      category: 'Consultoría',
-      features: ['Servicios Especializados', 'Estadísticas', 'Formulario Contacto', 'Diseño Corporativo'],
-      demoUrl: 'https://landingmodelone.vercel.app/',
-      technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'React'],
-      previewColor: 'from-neutral-50 to-neutral-100'
-    },
-    {
-      title: 'E-commerce Moderno',
-      description: 'Plantilla completa para tienda online con carrito de compras, pagos integrados y panel administrativo.',
-      icon: FiShoppingBag,
-      category: 'E-commerce',
-      features: ['Carrito de Compras', 'Pagos Seguros', 'Panel Admin', 'Responsive'],
-      demoUrl: 'https://plantilla-ecommerce-lime.vercel.app/',
-      technologies: ['React', 'Next.js', 'Stripe', 'MongoDB'],
-      previewColor: 'from-zinc-50 to-zinc-100'
-    },
   ];
+
+  const safeIndex = templates.length > 0 ? currentIndex % templates.length : 0;
+  const currentTemplate = templates[safeIndex];
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -136,7 +119,7 @@ export const Templates: React.FC = () => {
 
   // Autoplay del carrusel
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible && templates.length > 0) {
       autoplayRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % templates.length);
       }, 5000);
@@ -149,7 +132,18 @@ export const Templates: React.FC = () => {
     };
   }, [isVisible, templates.length]);
 
+  useEffect(() => {
+    if (templates.length === 0) {
+      setCurrentIndex(0);
+      return;
+    }
+    if (currentIndex >= templates.length) {
+      setCurrentIndex(0);
+    }
+  }, [currentIndex, templates.length]);
+
   const goToSlide = (index: number) => {
+    if (templates.length === 0) return;
     setCurrentIndex(index);
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
@@ -157,6 +151,7 @@ export const Templates: React.FC = () => {
   };
 
   const goToPrevious = () => {
+    if (templates.length === 0) return;
     setCurrentIndex((prev) => (prev - 1 + templates.length) % templates.length);
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
@@ -164,6 +159,7 @@ export const Templates: React.FC = () => {
   };
 
   const goToNext = () => {
+    if (templates.length === 0) return;
     setCurrentIndex((prev) => (prev + 1) % templates.length);
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
@@ -205,12 +201,14 @@ export const Templates: React.FC = () => {
               >
                 {/* Vista previa del sitio */}
                 <div className="h-[500px] md:h-[600px] relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                  <SitePreview 
-                    demoUrl={templates[currentIndex].demoUrl} 
-                    title={templates[currentIndex].title} 
-                    icon={templates[currentIndex].icon}
-                    previewColor={templates[currentIndex].previewColor}
-                  />
+                  {currentTemplate && (
+                    <SitePreview
+                      demoUrl={currentTemplate.demoUrl}
+                      title={currentTemplate.title}
+                      icon={currentTemplate.icon}
+                      previewColor={currentTemplate.previewColor}
+                    />
+                  )}
                 </div>
 
                 {/* Contenido */}
@@ -218,23 +216,23 @@ export const Templates: React.FC = () => {
                   {/* Categoría */}
                   <div className="mb-6">
                     <span className="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full tracking-wide">
-                      {templates[currentIndex].category}
+                      {currentTemplate?.category}
                     </span>
                   </div>
 
                   {/* Título */}
                   <h3 className="text-3xl md:text-4xl font-light text-gray-800 mb-4 leading-tight">
-                    {templates[currentIndex].title}
+                    {currentTemplate?.title}
                   </h3>
 
                   {/* Descripción */}
                   <p className="text-gray-500 mb-8 font-light leading-relaxed text-lg">
-                    {templates[currentIndex].description}
+                    {currentTemplate?.description}
                   </p>
 
                   {/* Características */}
                   <div className="space-y-4 mb-8">
-                    {templates[currentIndex].features.slice(0, 3).map((feature, featureIndex) => (
+                    {currentTemplate?.features.slice(0, 3).map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center text-gray-600">
                         <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></div>
                         <span className="text-sm font-light">{feature}</span>
@@ -244,7 +242,7 @@ export const Templates: React.FC = () => {
 
                   {/* Tecnologías */}
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {templates[currentIndex].technologies.map((tech, techIndex) => (
+                    {currentTemplate?.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
                         className="bg-gray-50 text-gray-500 text-xs px-3 py-1.5 font-light rounded-md border border-gray-100"
@@ -256,7 +254,7 @@ export const Templates: React.FC = () => {
 
                   {/* Botón de acción */}
                   <a
-                    href={templates[currentIndex].demoUrl}
+                    href={currentTemplate?.demoUrl ?? '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-gray-800 text-white px-8 py-4 text-sm font-medium hover:bg-gray-700 transition-colors duration-300 rounded-lg group"
